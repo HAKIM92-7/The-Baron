@@ -1,0 +1,22 @@
+.plus {
+  margin-left: 20px;
+  margin-right: 3px;
+  height: 30px;
+  width: 30px;
+  opacity: 0.8;
+}
+
+.buttons {
+  position: relative;
+  top: 10px;
+}
+
+.moins {
+  height: 30px;
+  width: 30px;
+  opacity: 0.8;
+}
+
+.inp {
+  width: 30px;
+}
