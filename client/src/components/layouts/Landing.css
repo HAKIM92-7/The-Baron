@@ -1,6 +1,7 @@
 #listofproducts {
   display: flex;
-  margin-top: 30px;
+
+  margin-left: 100px;
   flex-wrap: wrap;
 }
 #carousel {
@@ -18,4 +19,31 @@
 .productcard {
   margin-right: 10px;
   margin-bottom: 10px;
+}
+.listlength {
+  margin-left: 550px;
+}
+#v-pills-tab {
+  margin-left: 30px;
+  width: 300px;
+  background-color: grey;
+  border-radius: 10px;
+}
+.filterandproducts {
+  display: flex;
+}
+.pagination {
+  display: flex;
+  justify-content: space-around;
+}
+.alert {
+  width: 200px;
+  margin-left: 550px;
+  text-align: center;
+}
+.nav-link {
+  color: aqua;
+}
+.paginations {
+  margin-left: 1000px;
 }

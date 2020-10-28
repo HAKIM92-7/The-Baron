@@ -4,7 +4,7 @@ import { deleteFromBasket } from '../../redux/actions/productActions';
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../redux/actions/alertActions';
 import Moment from 'react-moment';
-import { getMyOrders } from '../../redux/actions/orderActions';
+import { getMyOrders, getOrderByOrderId } from '../../redux/actions/orderActions';
 
 const UserOrders = () => {
   useEffect(() => {
@@ -33,7 +33,7 @@ const UserOrders = () => {
             </thead>
             <tbody>
               {orders.map((el, index) => {
-                console.log(el.command_date);
+               
                 return (
                   <tr index={index}>
                     <td>{el._id}</td>
@@ -47,7 +47,8 @@ const UserOrders = () => {
                     <td>{el.total} DT </td>
                     <td>
                       {' '}
-                      <button className='btn btn-info'>More details</button>
+                      <Link to={'/order-details'}  
+                      className='btn btn-info'  onClick={()=>dispatch(getOrderByOrderId(el._id))} >More details</Link>
                     </td>
                   </tr>
                 );

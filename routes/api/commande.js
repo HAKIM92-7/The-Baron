@@ -112,7 +112,11 @@ router.get('/:order_id', auth, async (req, res) => {
     if (order.user.toString() !== req.user.id) {
       return res
         .status(401)
-        .json({ errors: [{ msg: 'you are not the owner of this order!!' }] });
+        .json({
+          errors: [
+            { msg: 'you are not authorized to access to this order infos !!' },
+          ],
+        });
     }
 
     return res.json(order);

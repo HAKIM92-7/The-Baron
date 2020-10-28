@@ -2,15 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-image: url('');
-  background-repeat: no-repeat;
 }
 
 .container {
   max-width: 1200px;
   margin: 5% auto;
 }
-
-.footer {
-  margin-top: 200px;
+#foot {
+  width: 100%;
+  margin-top: 500px;
 }

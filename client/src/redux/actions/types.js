@@ -38,3 +38,7 @@ export const USER_ORDERS_FAIL = 'USER_ORDERS_FAIL';
 export const CLEAR_USER_ORDERS = 'CLEAR_USER_ORDERS';
 export const SHOP_REMOVED = 'SHOP_REMOVED';
 export const SHOP_REMOVE_FAIL = 'SHOP_REMOVE_FAIL';
+export const GET_ORDER = 'GET_ORDER';
+
+
+

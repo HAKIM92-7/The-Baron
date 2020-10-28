@@ -5,6 +5,7 @@ import { deleteFromBasket } from '../../redux/actions/productActions';
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../redux/actions/alertActions';
 import { passAnOrder } from '../../redux/actions/orderActions';
+import Footer from '../layouts/Footer';
 
 const Basket = () => {
   const dispatch = useDispatch();
@@ -76,6 +77,8 @@ const Basket = () => {
       ) : (
         dispatch(setAlert('Pas de produits dans le panier', 'warning'))
       )}
+
+      
     </Fragment>
   );
 };

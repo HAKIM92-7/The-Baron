@@ -120,14 +120,13 @@ const CreateProduct = () => {
           <div className='control'>
             <div className='select'>
               <select name='category' value={category} onChange={onChange}>
-                <option value='Afganistan'>Afghanistan</option>
-                <option value='Albania'>Albania</option>
-                <option value='Algeria'>Algeria</option>
-                <option value='American Samoa'>American Samoa</option>
-                <option value='Andorra'>Andorra</option>
-                <option value='Angola'>Angola</option>
-                <option value='Anguilla'>Anguilla</option>
-                <option value='Antigua & Barbuda'>Antigua & Barbuda</option>
+              <option value='None'>None</option>
+                <option value='Industrie'>Industrie</option>
+                <option value='Autos'>Autos</option>
+                <option value='Sport'>Sport</option>
+                <option value='Accessoires'>Accessoires</option>
+                <option value='Montres'>Montres</option>
+           
               </select>
             </div>
           </div>

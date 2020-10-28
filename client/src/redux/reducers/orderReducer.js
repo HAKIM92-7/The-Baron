@@ -4,10 +4,11 @@ import {
   GET_USER_ORDERS,
   USER_ORDERS_FAIL,
   CLEAR_USER_ORDERS,
+  GET_ORDER,
 } from '../actions/types';
 
 const initialState = {
-  order: [],
+  order:null,
   userOrders: [],
   loading: true,
   error: {},
@@ -16,6 +17,7 @@ const initialState = {
 export default function (state = initialState, { type, payload }) {
   switch (type) {
     case ORDER_PASSED:
+    case GET_ORDER:
       return {
         ...state,
         order: payload,

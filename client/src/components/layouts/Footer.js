@@ -1,26 +1,46 @@
-import React, { Fragment } from 'react';
+import React from "react";
+import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import {Link} from 'react-router-dom';
+
+
 
 const Footer = () => {
   return (
-    <Fragment>
-      <footer className='footer'>
-        <div className='content has-text-centered'>
-          <p>
-            <strong>The Baron</strong> by{' '}
-            <a href='https://github.com/HAKIM92-7'>Hakim Barouni</a>. The source
-            code is licensed
-            <a href='https://github.com/HAKIM92-7'>Github</a>. The website
-            content is open to public
-            <a href='https://www.facebook.com/medhakim.barouni'>
-              {' '}
-              Bizerte 2020
-            </a>
-            .
-          </p>
-        </div>
-      </footer>
-    </Fragment>
+    <MDBFooter color="grey" className="font-small pt-4 mt-4">
+      <MDBContainer fluid className="text-center text-md-left">
+        <MDBRow>
+          <MDBCol md="6">
+            <h5 className="title">The Baron</h5>
+            <p>
+             The best choice to customize your brand.
+            </p>
+          </MDBCol>
+          <MDBCol md="6">
+            <h5 className="title">Links</h5>
+            <ul>
+              <li className="list-unstyled">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Link 2</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Link 3</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+      <div className="footer-copyright text-center py-3">
+        <MDBContainer fluid>
+          &copy; {new Date().getFullYear()} Copyright: <a href="http://localhost:3000/"> TheBaron.com</a>
+        </MDBContainer>
+      </div>
+    </MDBFooter>
   );
-};
+}
 
 export default Footer;

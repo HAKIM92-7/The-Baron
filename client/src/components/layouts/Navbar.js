@@ -103,21 +103,6 @@ const Navbar = () => {
               Shops
             </Link>
 
-            <div className='navbar-item has-dropdown is-hoverable'>
-              <a className='navbar-link' style={{ color: 'aqua' }}>
-                More
-              </a>
-
-              <div className='navbar-dropdown'>
-                <Link to='/allShops ' className='navbar-item'>
-                  Shops
-                </Link>
-                <a className='navbar-item'>Jobs</a>
-                <a className='navbar-item'>Contact</a>
-                <hr className='navbar-divider' />
-                <a className='navbar-item'>Report an issue</a>
-              </div>
-            </div>
           </div>
 
           <div className='navbar-end'>
@@ -193,7 +178,7 @@ const Navbar = () => {
                   <Link
                     to='/basket'
                     class='btn btn-warning'
-                    style={{ marginBottom: '15px' }}
+                    style={{ marginBottom: '20px' }}
                   >
                     <i className='fas fa-shopping-basket'></i>
                   </Link>

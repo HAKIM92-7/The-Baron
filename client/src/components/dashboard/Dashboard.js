@@ -28,7 +28,9 @@ const Dashboard = () => {
     <Fragment>
       {shop !== null ? (
         <Fragment>
+          <div style={{marginBottom:'10px'}}>
           <DashboardActions />
+          </div>
           <ShopCard />
           <br />
           <br />

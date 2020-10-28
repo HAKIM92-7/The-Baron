@@ -9,6 +9,9 @@ import {
 import ProductCard from '../products/ProductCard';
 import './Landing.css';
 import Carousel from './Carousel';
+import CategoriesFilter from './CategoriesFilter';
+import Pagination from './Pagination';
+import { setAlert } from '../../redux/actions/alertActions';
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -21,11 +24,18 @@ const Landing = () => {
   }, []);
 
   const [filter, setFilter] = useState('');
+  const [category , setCategory]= useState('');
 
   const filtredList = products.filter((product) => {
-    return filter !== ''
-      ? product.title.toLowerCase().indexOf(filter.toLowerCase()) !== -1
-      : product;
+    if(filter !== ''){
+    return  product.title.toLowerCase().indexOf(filter.toLowerCase()) !== -1
+   } 
+   else if (category!==''){
+    return product.category === category;
+   }
+   else {
+     return product ;
+}
   });
 
   return loading && products.length === 0 ? (
@@ -55,18 +65,35 @@ const Landing = () => {
           </button>
         </form>
       </div>
+      
       <div id='carousel'>
         <Carousel />
+        
       </div>
+
+      <div className="alert alert-primary" role="alert">
+{filtredList.length} Products
+</div>  
+       <div className="filterandproducts">
+        <div id="categories">
+          <CategoriesFilter setCategory={setCategory}/>
+          </div>
+     
       <div className='container'>
+       
         <div id='listofproducts'>
+         
           {filtredList.map((product, i) => (
             <div index={i} className='productcard'>
               <ProductCard product={product} />
             </div>
           ))}
         </div>
+      </div>      
       </div>
+      <div className="paginations">
+   <Pagination/>
+   </div>
     </Fragment>
   );
 };

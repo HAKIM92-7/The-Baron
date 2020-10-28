@@ -27,6 +27,9 @@ import OrderInfos from './components/orders/OrderInfos';
 import RegisterToOrder from './components/auth/RegisterToOrder';
 import LoginToOrder from './components/auth/LoginToOrder';
 import UserOrders from './components/orders/UserOrders';
+import OrderDetails from './components/orders/OrderDetails';
+import 'mdbreact/dist/css/mdb.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +46,7 @@ function App() {
       <Route exact={true} path='/' component={Landing} />
       <div className='container'>
         <Alert />
+       
         <Switch>
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
@@ -57,15 +61,21 @@ function App() {
           <PrivateRoute path='/update-product' component={UpdateProduct} />
           <PrivateRoute path='/order-infos' component={OrderInfos} />
           <PrivateRoute path='/user-orders' component={UserOrders} />
+          <PrivateRoute path='/order-details' component={OrderDetails} />
           <Route path='/product-profile' component={ProductProfile} />
           <Route path='/register-to-order' component={RegisterToOrder} />
           <Route path='/login-to-order' component={LoginToOrder} />
           <Route path='/basket' component={Basket} />
         </Switch>
-        <div className='footer'>
-          <Footer />
-        </div>
+        
+         
+        
       </div>
+      <div id="foot">
+        <Footer/>
+      </div>
+    
+  
     </Fragment>
   );
 }

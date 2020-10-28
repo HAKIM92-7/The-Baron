@@ -3,11 +3,11 @@ import axios from 'axios';
 import {
   ORDER_PASSED,
   ORDER_FAIL,
-  ORDER_INFOS_SENT,
-  ORDER_INFOS_FAIL,
   GET_USER_ORDERS,
   USER_ORDERS_FAIL,
   CLEAR_USER_ORDERS,
+  GET_ORDER,
+  
 } from './types';
 
 import { clearBasket } from './productActions';
@@ -74,6 +74,38 @@ export const getMyOrders = () => async (dispatch, getState) => {
     });
   }
 };
+
+
+//GET ORDER BY order_id
+
+export const getOrderByOrderId = (orderId) => async (dispatch,getState) => {
+  try {
+    const res = await axios.get(`api/commande/${orderId}` ,tokenConfig(getState));
+
+    dispatch({
+      type: GET_ORDER,
+
+      payload: res.data,
+    });
+
+  } 
+  
+  catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => {
+        dispatch(setAlert(error.msg, 'danger'));
+      });
+    }
+    dispatch({
+      type: ORDER_FAIL,
+      payload: { msg: err.message.statusText, error: err.message.status },
+    });
+  }
+};
+
+
 
 //CLEAR USER ORDERS
 

@@ -113,7 +113,7 @@ const ProductProfile = () => {
               >
                 Add to basket
               </button>
-            ) : seller._id === product.seller ? (
+            ) : seller.id === product.seller || seller._id === product.seller ? (
               <Link to='/update-product' class='btn btn-warning'>
                 Edit Product
               </Link>
