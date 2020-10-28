@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginSeller } from '../../redux/actions/authSellerActions';
 import { getCurrentShop, getShopByID } from '../../redux/actions/shopActions';
+import { loadUser } from '../../redux/actions/authActions';
 
 const LoginSeller = () => {
   const [loginInfos, setLoginInfo] = useState({

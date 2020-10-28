@@ -1,8 +1,16 @@
-import { GET_SHOP, SHOP_FAIL, CLEAR_SHOP, GET_SHOPS } from './types';
+import {
+  GET_SHOP,
+  SHOP_FAIL,
+  CLEAR_SHOP,
+  GET_SHOPS,
+  SHOP_REMOVED,
+  SHOP_REMOVE_FAIL,
+} from './types';
 
 import axios from 'axios';
 import { setAlert } from './alertActions';
 import { clearSellerProducts } from './productActions';
+import { logoutSeller } from './authSellerActions';
 
 // create or edit a profile
 
@@ -93,6 +101,31 @@ export const getShopByID = (sellerId) => async (dispatch) => {
     });
   }
 };
+//REMOVE THE SHOP AND THE SELLER
+
+export const deleteShop = (history) => async (dispatch, getState) => {
+  try {
+    if (
+      window.confirm(
+        'are you sure to delete this seller account ? if you confirm All your products will be removed !'
+      )
+    ) {
+      await axios.delete('api/shop', tokenConfig(getState));
+
+      dispatch({ type: SHOP_REMOVED });
+
+      history.push('/');
+
+      dispatch(logoutSeller());
+      window.alert('Account removed successfully !');
+    }
+  } catch (err) {
+    dispatch({
+      type: SHOP_REMOVE_FAIL,
+      payload: { msg: err.response.statusText, error: err.response.status },
+    });
+  }
+};
 
 // CLEAR THE SHOP
 
@@ -103,7 +136,7 @@ export const clearShop = () => (dispatch) => {
 // setup config/headers and token-------------------------------------------------------------------------------------------------------------------
 
 export const tokenConfig = (getState) => {
-  const token = getState().auth.token;
+  const token = getState().authSeller.token;
 
   const config = {
     headers: {

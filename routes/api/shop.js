@@ -165,7 +165,7 @@ router.get('/seller/:seller_id', async (req, res) => {
   }
 });
 
-// @route  DELETE  api/seller
+// @route  DELETE  api/shop
 // @desc   Delete a shop and a seller
 // @access Private
 

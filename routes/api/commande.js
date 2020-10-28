@@ -46,6 +46,14 @@ router.post(
 
     if (listofproducts) orderFields.listofproducts = listofproducts;
 
+    var total = 0;
+
+    listofproducts.map((product) => {
+      total += product.total_price;
+    });
+
+    orderFields.total = total;
+
     orderFields.contact_infos = {};
 
     if (adress_of_delivery)

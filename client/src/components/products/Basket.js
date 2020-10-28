@@ -12,6 +12,10 @@ const Basket = () => {
   const user = useSelector((state) => state.auth.user);
   var totalPrice = 0;
 
+  basket.map((product) => {
+    totalPrice += product.total_price;
+  });
+
   return (
     <Fragment>
       <h2 className='large text-primary'> Panier </h2>
@@ -55,7 +59,7 @@ const Basket = () => {
               <tr>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td>Total </td>
                 <td>{totalPrice} DT</td>
                 <td></td>
               </tr>

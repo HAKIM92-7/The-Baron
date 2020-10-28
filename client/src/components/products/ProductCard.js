@@ -18,6 +18,7 @@ const ProductCard = ({ product }) => {
           to='/product-profile'
           onClick={() => {
             dispatch(getProductByProductId(product._id));
+            dispatch(getProductsBySeller(product.seller._id));
           }}
         >
           {' '}

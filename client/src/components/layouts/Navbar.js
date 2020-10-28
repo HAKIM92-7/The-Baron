@@ -8,7 +8,12 @@ import {
   getCurrentShop,
   getShopByID,
 } from '../../redux/actions/shopActions';
-import { clearBasket } from '../../redux/actions/productActions';
+import {
+  clearBasket,
+  getMyProducts,
+  getProductsBySeller,
+} from '../../redux/actions/productActions';
+import { getMyOrders } from '../../redux/actions/orderActions';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -59,6 +64,7 @@ const Navbar = () => {
                 style={{ color: 'aqua' }}
                 onClick={() => {
                   dispatch(getShopByID(seller.id));
+                  dispatch(getProductsBySeller(seller.id));
                 }}
               >
                 Dashboard
@@ -67,7 +73,15 @@ const Navbar = () => {
               ''
             )}
             {user && isAuthenticatedUser ? (
-              ''
+              <Link
+                to='/user-orders'
+                className='navbar-item'
+                style={{ color: 'aqua' }}
+                onClick={() => dispatch(getMyOrders())}
+              >
+                {' '}
+                My Orders{' '}
+              </Link>
             ) : !seller && !isAuthenticatedSeller ? (
               <Link
                 to='/registerSeller'

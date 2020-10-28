@@ -42,8 +42,6 @@ router.post(
       });
     }
 
-    const shop = await Shop.findOne({ seller: req.user.id });
-
     const {
       title,
       price,
@@ -58,8 +56,11 @@ router.post(
 
     const productFields = {};
 
+    const shop = await Shop.findOne({ seller: req.user.id });
+
     productFields.seller = req.user.id;
     productFields.shop = shop;
+
     if (title) productFields.title = title;
     if (price) productFields.price = price;
     if (quantity) productFields.quantity = quantity;
@@ -229,7 +230,7 @@ router.get('/seller/:seller_id', async (req, res) => {
   }
 });
 
-// @route  GET  api/products/me
+// @route  GET  api/myproducts/me
 // @desc   current seller products
 // @access Private
 

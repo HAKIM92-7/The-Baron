@@ -1,4 +1,10 @@
-import { GET_SHOP, SHOP_FAIL, CLEAR_SHOP, GET_SHOPS } from '../actions/types';
+import {
+  GET_SHOP,
+  SHOP_FAIL,
+  CLEAR_SHOP,
+  GET_SHOPS,
+  SHOP_REMOVE_FAIL,
+} from '../actions/types';
 
 const initialState = {
   shop: null,
@@ -29,6 +35,7 @@ export default function (state = initialState, { type, payload }) {
       };
 
     case SHOP_FAIL:
+    case SHOP_REMOVE_FAIL:
       return {
         ...state,
         errors: payload,

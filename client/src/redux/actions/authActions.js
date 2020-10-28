@@ -12,6 +12,7 @@ import {
   LOGOUT_SELLER_SUCCESS,
 } from './types';
 import { logoutSeller } from './authSellerActions';
+import { clearUserOrders } from './orderActions';
 
 //REGISTER USER
 
@@ -109,6 +110,7 @@ export const loadUser = () => async (dispatch, getState) => {
 export const logoutUser = () => (dispatch) => {
   dispatch({ type: LOGOUT_SUCCESS });
   dispatch({ type: LOGOUT_SELLER_SUCCESS });
+  dispatch(clearUserOrders());
 };
 
 // setup config/headers and token-------------------------------------------------------------------------------------------------------------------

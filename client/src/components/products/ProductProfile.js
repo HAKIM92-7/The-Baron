@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Spinner from '../layouts/Spinner';
@@ -18,6 +18,7 @@ const ProductProfile = () => {
 
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product.product);
+  const sellerProducts = useSelector((state) => state.product.sellerProducts);
   const seller = useSelector((state) => state.authSeller.seller);
 
   return !product ? (
@@ -60,7 +61,7 @@ const ProductProfile = () => {
             {!seller ? (
               <div class='buttons'>
                 <button
-                  class='plus'
+                  class='plus btn btn-success'
                   onClick={() => {
                     if (quantityToOrder < product.quantity)
                       setQuantity(quantityToOrder + 1);
@@ -75,7 +76,7 @@ const ProductProfile = () => {
                   value={quantityToOrder}
                 />
                 <button
-                  class='moins'
+                  class='moins btn btn-danger'
                   onClick={() => {
                     if (quantityToOrder > 1) setQuantity(quantityToOrder - 1);
                   }}
@@ -112,10 +113,12 @@ const ProductProfile = () => {
               >
                 Add to basket
               </button>
-            ) : (
+            ) : seller._id === product.seller ? (
               <Link to='/update-product' class='btn btn-warning'>
                 Edit Product
               </Link>
+            ) : (
+              ''
             )}
             <br />
             <br />
@@ -130,6 +133,18 @@ const ProductProfile = () => {
             </Link>
           </div>
         </div>
+      </div>
+      <h3 className='large text-primary'> Autres produits de la boutique </h3>
+      <div className='autresproduits'>
+        {sellerProducts.map((el) =>
+          el._id !== product._id ? (
+            <div className='productCard'>
+              <ProductCard product={el} />
+            </div>
+          ) : (
+            ''
+          )
+        )}
       </div>
     </Fragment>
   );

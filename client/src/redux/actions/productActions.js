@@ -14,6 +14,7 @@ import {
   DELETE_FROM_BASKET,
   CLEAR_BASKET,
 } from './types';
+import { getCurrentShop } from './shopActions';
 
 // Add product
 export const addProduct = (formData, history) => async (dispatch, getState) => {
@@ -123,7 +124,9 @@ export const updateProduct = (product_id, formData, history) => async (
       type: PRODUCT_UPDATED,
       payload: res.data,
     });
+
     history.push('/dashboard');
+
     dispatch(setAlert('Product Updated', 'success'));
   } catch (err) {
     const errors = err.response.data.errors;
@@ -227,7 +230,7 @@ export const clearProduct = () => (dispatch) => {
 // setup config/headers and token-------------------------------------------------------------------------------------------------------------------
 
 export const tokenConfig = (getState) => {
-  const token = getState().auth.token;
+  const token = getState().authSeller.token;
 
   const config = {
     headers: {

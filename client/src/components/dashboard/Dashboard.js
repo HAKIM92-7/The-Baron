@@ -26,14 +26,6 @@ const Dashboard = () => {
 
   return (
     <Fragment>
-      {loading && !shop ? (
-        <Spinner />
-      ) : (
-        <>
-          <p>Hello {seller.firstname} !!</p>
-        </>
-      )}
-
       {shop !== null ? (
         <Fragment>
           <DashboardActions />
@@ -67,10 +59,7 @@ const Dashboard = () => {
         </Fragment>
       ) : (
         <Fragment>
-          <p>you haven't yet a shop please send some infos</p>
-          <Link to='/create-shop' className=' btn btn-primary my-1'>
-            Create a shop
-          </Link>
+          <Spinner />
         </Fragment>
       )}
     </Fragment>

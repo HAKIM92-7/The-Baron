@@ -35,7 +35,7 @@ const RegisterSeller = () => {
   );
 
   if (isAuthenticated) {
-    return <Redirect to='/dashboard' />;
+    return <Redirect to='/create-shop' />;
   }
 
   return (

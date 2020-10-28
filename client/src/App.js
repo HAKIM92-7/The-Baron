@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import Navbar from './components/layouts/Navbar';
 import Landing from './components/layouts/Landing';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
@@ -26,14 +26,16 @@ import Basket from './components/products/Basket';
 import OrderInfos from './components/orders/OrderInfos';
 import RegisterToOrder from './components/auth/RegisterToOrder';
 import LoginToOrder from './components/auth/LoginToOrder';
+import UserOrders from './components/orders/UserOrders';
 
 function App() {
   const dispatch = useDispatch();
+  const seller = useSelector((state) => state.authSeller.seller);
 
   useEffect(() => {
     dispatch(loadUser());
     dispatch(loadSeller());
-  });
+  }, []);
 
   return (
     <Fragment>
@@ -49,12 +51,12 @@ function App() {
           <Route exact path='/allShops' component={AllShops} />
           <Route exact path='/shopToPublic' component={ShopToPublic} />
           <PrivateRoute path='/create-shop' component={ShopForm} />
-
           <PrivateRoute path='/dashboard' component={Dashboard} />
           <PrivateRoute path='/edit-shop' component={EditShopForm} />
           <PrivateRoute path='/create-product' component={CreateProduct} />
           <PrivateRoute path='/update-product' component={UpdateProduct} />
           <PrivateRoute path='/order-infos' component={OrderInfos} />
+          <PrivateRoute path='/user-orders' component={UserOrders} />
           <Route path='/product-profile' component={ProductProfile} />
           <Route path='/register-to-order' component={RegisterToOrder} />
           <Route path='/login-to-order' component={LoginToOrder} />

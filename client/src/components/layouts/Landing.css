@@ -10,3 +10,12 @@
 
   background: no-repeat center center scroll;
 }
+#search {
+  margin-left: 800px;
+  margin-top: 10px;
+}
+
+.productcard {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}

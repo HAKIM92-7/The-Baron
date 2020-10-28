@@ -24,6 +24,9 @@ let commandSchema = new mongoose.Schema({
     },
   ],
 
+  total: {
+    type: Number,
+  },
   contact_infos: {
     adress_of_delivery: {
       type: String,

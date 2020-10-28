@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { setAlert } from './alertActions';
-import { logoutUser } from './authActions';
+import { logoutUser, loadUser, loginUser } from './authActions';
+import { getProductsBySeller } from './productActions';
 
 import {
   REGISTER_SELLER_SUCCESS,
@@ -54,7 +55,7 @@ export const registerSeller = ({
   }
 };
 
-//LOGIN USER----------------------------------------------------------------------------------------------------------------------
+//LOGIN SELLER----------------------------------------------------------------------------------------------------------------------
 
 export const loginSeller = ({ email, password }) => async (dispatch) => {
   //Headers
@@ -121,7 +122,7 @@ export const logoutSeller = () => (dispatch) => {
 // setup config/headers and token-------------------------------------------------------------------------------------------------------------------
 
 export const tokenConfig = (getState) => {
-  const token = getState().auth.token;
+  const token = getState().authSeller.token;
 
   const config = {
     headers: {
