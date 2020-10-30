@@ -9,7 +9,9 @@ const Footer = () => {
     <MDBFooter color="grey" className="font-small pt-4 mt-4">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
-          <MDBCol md="6">
+          <MDBCol md="6"  >
+            <img src='https://upload.wikimedia.org/wikipedia/commons/c/c7/B-logo-1.png' alt="" 
+            style={{width:'100px',height:'100px',marginLeft:'20px'}}/>
             <h5 className="title">The Baron</h5>
             <p>
              The best choice to customize your brand.
@@ -21,14 +23,15 @@ const Footer = () => {
               <li className="list-unstyled">
                 <Link to="/">Home</Link>
               </li>
+              
               <li className="list-unstyled">
-                <a href="#!">Link 2</a>
+              <Link to="/register">Register</Link>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 3</a>
+              <Link to="/login">login</Link>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 4</a>
+              <Link to="/loginSeller">Login as a seller</Link>
               </li>
             </ul>
           </MDBCol>

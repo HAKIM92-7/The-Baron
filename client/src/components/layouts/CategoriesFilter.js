@@ -2,7 +2,7 @@ import React,{Fragment} from 'react'
 
 const CategoriesFilter = (props) => {
 
-  const categories =['Industrie' , 'Autos' , 'Sport' , 'Accessoires' , 'Montres']
+  const categories =['Industrie' , 'Autos' , 'Sport' ,'Cuisine', 'Décoration' , 'Accessoires','Fourniture scolaire']
   return (
     <Fragment>
       <div className="row">
@@ -10,7 +10,7 @@ const CategoriesFilter = (props) => {
    
     <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     
-    <a className="nav-link" id={`v-pills-clear-tab`} data-toggle="pill" href='#v-pills-clear' role="tab" 
+    <a className="nav-link active" id={`v-pills-clear-tab`} data-toggle="pill" href='#v-pills-clear' role="tab" 
       aria-controls='v-pills-clear 'aria-selected="true" onClick={()=> props.setCategory('')}>Tous</a>
       {categories.map((category) =>(
       <a className="nav-link" id={`v-pills-${category}-tab`} data-toggle="pill" href={`#v-pills-${category}`} role="tab" 

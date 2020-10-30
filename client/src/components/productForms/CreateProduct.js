@@ -124,8 +124,11 @@ const CreateProduct = () => {
                 <option value='Industrie'>Industrie</option>
                 <option value='Autos'>Autos</option>
                 <option value='Sport'>Sport</option>
+                <option value='Cuisine'>Cuisine</option>
+                <option value='Décoration'>Décoration</option>
                 <option value='Accessoires'>Accessoires</option>
-                <option value='Montres'>Montres</option>
+                <option value='Fourniture scolaire'>Fourniture scolaire</option>
+               
            
               </select>
             </div>

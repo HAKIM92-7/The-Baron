@@ -1,21 +1,25 @@
 
 import React, {Fragment} from 'react'
 
-const Pagination = () => {
+const Pagination = ({elementsPerPage , totalElements ,paginate }) => {
+
+  const pageNumbers =[] ;
+  for (let i=1 ; i<= Math.ceil (totalElements / elementsPerPage ) ; i++)
+  {
+    pageNumbers.push(i);
+
+
+  }
     return (
         <Fragment>
             <nav className="pagination" role="navigation" aria-label="pagination">
 
   <ul className="pagination-list">
-    <li>
-      <a className="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+    { pageNumbers.map(number => (
+    <li key={number}> 
+      <a className="pagination-link " onClick={()=>paginate(number)} href="#" aria-label={`Page ${number}`} aria-current="page">{number}</a>
     </li>
-    <li>
-      <a className="pagination-link" aria-label="Goto page 2">2</a>
-    </li>
-    <li>
-      <a className="pagination-link" aria-label="Goto page 3">3</a>
-    </li>
+    ))}
   </ul>
 </nav>
         </Fragment>

@@ -7,6 +7,7 @@ import { createShop, getCurrentShop } from '../../redux/actions/shopActions';
 const EditShopForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+
   const [formData, setFormData] = useState({
     nameofshop: '',
     emailofbusiness: '',
@@ -50,9 +51,12 @@ const EditShopForm = () => {
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+ 
   const onSubmit = (e) => {
     e.preventDefault();
+
     dispatch(createShop(formData, history, true));
+
   };
   return (
     <Fragment>
@@ -426,7 +430,6 @@ const EditShopForm = () => {
             ></textarea>
           </div>
         </div>
-
         <div className='field'>
           <label className='label'>Logo</label>
           <div className='control'>
@@ -440,6 +443,8 @@ const EditShopForm = () => {
             />
           </div>
         </div>
+
+     
         <div className='field is-grouped'>
           <div className='control'>
             <button className='button is-link'>Submit</button>

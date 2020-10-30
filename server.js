@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const Port = 5000;
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload');
 const connectDB = require('./database/connect');
 
 app.use(express.json({ extended: false }));
+app.use(fileUpload());
 
 connectDB();
 

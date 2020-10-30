@@ -7,6 +7,7 @@ import { useHistory } from 'react-router';
 const ShopForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+ const shop = useSelector(state => state.shop.shop);
   const [formData, setFormData] = useState({
     nameofshop: '',
     emailofbusiness: '',
@@ -36,6 +37,9 @@ const ShopForm = () => {
     e.preventDefault();
     dispatch(createShop(formData, history, false));
   };
+
+ 
+
   return (
     <Fragment>
       <form onSubmit={onSubmit}>
@@ -422,8 +426,9 @@ const ShopForm = () => {
             />
           </div>
         </div>
+  
 
-        <div className='field is-grouped'>
+        <div className="field is-grouped">
           <div className='control'>
             <button className='button is-link'>Submit</button>
           </div>

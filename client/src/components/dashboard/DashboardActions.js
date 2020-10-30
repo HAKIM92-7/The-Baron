@@ -16,7 +16,7 @@ const DashboardActions = () => {
         className='btn btn-light'
         onClick={() => dispatch(deleteShop(history))}
       >
-        <i className='fas fa-user-circle text-primary'></i> Delete shop
+        <i class="fas fa-trash-alt text-primary"></i> Delete shop
       </button>
     </div>
   );

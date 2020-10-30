@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState,useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Spinner from '../layouts/Spinner';
@@ -10,17 +10,20 @@ import {
   clearProduct,
   getProductsBySeller,
   addToBasket,
+
 } from '../../redux/actions/productActions';
 import { getShopByID } from '../../redux/actions/shopActions';
 
 const ProductProfile = () => {
   const [quantityToOrder, setQuantity] = useState(1);
 
+
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product.product);
   const sellerProducts = useSelector((state) => state.product.sellerProducts);
   const seller = useSelector((state) => state.authSeller.seller);
-
+  const loading = useSelector((state)=>state.product.loading)
+const [image , setImage] =useState ('');
   return !product ? (
     <Spinner />
   ) : (
@@ -30,14 +33,16 @@ const ProductProfile = () => {
         style={{ display: 'flex', marginBottom: '20px' }}
       >
         <img
-          src={product.images.image1}
+          src={ image==='' || (image!==product.images.image2 && image!==product.images.image3) ?product.images.image1:image}
           alt='image non loaded'
-          style={{ height: '600px', width: '400 px', marginRight: '20px' }}
+          
+         
         />
-        <div class='card'>
-          <div class='card-header'>{product.title}</div>
-          <div class='card-body'>
-            <h4 class='card-title'>
+       
+        <div className='card'>
+          <div className='card-header'>{product.title}</div>
+          <div className='card-body'>
+            <h4 className='card-title'>
               {' '}
               by{' '}
               <Link
@@ -50,18 +55,18 @@ const ProductProfile = () => {
                 {product.shop.nameofshop}
               </Link>
             </h4>
-            <h5 class='card-title'>{product.technicalsheet}</h5>
-            <p class='card-text'>{product.description}</p>
+            <h5 className='card-title'>{product.technicalsheet}</h5>
+            <p className='card-text'>{product.description}</p>
             <br />
             <h5>
               Quantity{' '}
-              <span class='badge badge-secondary'>{product.quantity}</span>
+              <span className='badge badge-secondary'>{product.quantity}</span>
             </h5>
             <br />
             {!seller ? (
-              <div class='buttons'>
+              <div className='buttons'>
                 <button
-                  class='plus btn btn-success'
+                  className='plus btn btn-success'
                   onClick={() => {
                     if (quantityToOrder < product.quantity)
                       setQuantity(quantityToOrder + 1);
@@ -72,11 +77,11 @@ const ProductProfile = () => {
                 <input
                   type='number'
                   id='inp2'
-                  class='inp'
+                  className='inp'
                   value={quantityToOrder}
                 />
                 <button
-                  class='moins btn btn-danger'
+                  className='moins btn btn-danger'
                   onClick={() => {
                     if (quantityToOrder > 1) setQuantity(quantityToOrder - 1);
                   }}
@@ -90,9 +95,9 @@ const ProductProfile = () => {
             <br /> <br />
             <h4>
               Price{' '}
-              <span class='badge badge-secondary'>{product.price} DT</span>
+              <span className='badge badge-secondary'>{product.price} DT</span>
             </h4>
-            <br /> <br /> <i class='fas fa-table'></i> created at :
+            <br /> <br /> <i className='fas fa-table'></i> created at :
             <Moment format='YYYY/MM/DD'>{`${product.register_date}`}</Moment>{' '}
             <br />
             <br />
@@ -100,7 +105,7 @@ const ProductProfile = () => {
             {!seller ? (
               <button
                 type='button'
-                class='btn btn-primary'
+                className='btn btn-primary'
                 onClick={() =>
                   dispatch(
                     addToBasket(
@@ -114,7 +119,7 @@ const ProductProfile = () => {
                 Add to basket
               </button>
             ) : seller.id === product.seller || seller._id === product.seller ? (
-              <Link to='/update-product' class='btn btn-warning'>
+              <Link to='/update-product' className='btn btn-warning'>
                 Edit Product
               </Link>
             ) : (
@@ -134,6 +139,16 @@ const ProductProfile = () => {
           </div>
         </div>
       </div>
+      <div className="autresimages" style={{display: 'flex'}}>
+      <img src={product.images.image1}  onClick={() => setImage(product.images.image1)}/>
+    {product.images.image2?
+  <img src={product.images.image2}  onClick={() => setImage(product.images.image2)}/>:null}
+
+
+{product.images.image3?
+  <img src={product.images.image3}  onClick={() => setImage(product.images.image3)}/>:null}
+
+</div>
       <h3 className='large text-primary'> Autres produits de la boutique </h3>
       <div className='autresproduits'>
         {sellerProducts.map((el) =>

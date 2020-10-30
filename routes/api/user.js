@@ -75,7 +75,7 @@ router.post(
                   token,
 
                   user: {
-                    id: user.id,
+                    _id: user.id,
                     name: user.firstname + ' ' + user.lastname,
                     email: user.email,
                   },

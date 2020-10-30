@@ -15,11 +15,15 @@ const AllShops = () => {
         All Shops
       </h1>{' '}
       <br />
+      <div className="allshops" style={{display:'flex' , flexWrap:'wrap'}}>
       {shops.map((shop) => (
         <Fragment>
+          <div className="shopelement" style={{marginRight:'10px' , marginTop:'10px' }}>
           <ShopItem shop={shop} />
+          </div>
         </Fragment>
       ))}
+      </div>
     </Fragment>
   );
 };

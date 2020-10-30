@@ -28,7 +28,7 @@ export const createShop = (formData, history, edit = false) => async (
     history.push('/dashboard');
     dispatch(setAlert(edit ? 'Shop updated' : 'Shop created', 'success'));
   } catch (err) {
-    const errors = err.message.data.errors;
+    const errors = err.response.data.errors;
 
     if (errors) {
       errors.forEach((error) => {

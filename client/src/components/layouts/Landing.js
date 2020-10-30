@@ -5,6 +5,7 @@ import Spinner from './Spinner';
 import {
   getAllProducts,
   clearProduct,
+  clearSellerProducts,
 } from '../../redux/actions/productActions';
 import ProductCard from '../products/ProductCard';
 import './Landing.css';
@@ -12,19 +13,27 @@ import Carousel from './Carousel';
 import CategoriesFilter from './CategoriesFilter';
 import Pagination from './Pagination';
 import { setAlert } from '../../redux/actions/alertActions';
+import { clearOrder } from '../../redux/actions/orderActions';
 
 const Landing = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.product.loading);
   const products = useSelector((state) => state.product.products);
+  
 
   useEffect(() => {
     dispatch(getAllProducts());
     dispatch(clearProduct());
+    dispatch(clearOrder());
+    dispatch(clearSellerProducts());
   }, []);
 
   const [filter, setFilter] = useState('');
   const [category , setCategory]= useState('');
+  const [currentPage , setCurrentPage] = useState(1);
+  const [productsPerPage , setProductsPerPage] = useState(12);
+
+  
 
   const filtredList = products.filter((product) => {
     if(filter !== ''){
@@ -37,6 +46,16 @@ const Landing = () => {
      return product ;
 }
   });
+
+  const indexOfLastPage = currentPage * productsPerPage ;
+  const indexOfFirstPage = indexOfLastPage - productsPerPage ;
+  const currentProducts = filtredList.slice(indexOfFirstPage,indexOfLastPage);
+ 
+  const paginate =(pageNumber) =>{
+
+   setCurrentPage(pageNumber)
+
+  }
 
   return loading && products.length === 0 ? (
     <Spinner />
@@ -75,15 +94,16 @@ const Landing = () => {
 {filtredList.length} Products
 </div>  
        <div className="filterandproducts">
+         { currentPage ===1 ?
         <div id="categories">
           <CategoriesFilter setCategory={setCategory}/>
-          </div>
-     
+          </div>: ''
+}
       <div className='container'>
        
         <div id='listofproducts'>
          
-          {filtredList.map((product, i) => (
+          {currentProducts.map((product, i) => (
             <div index={i} className='productcard'>
               <ProductCard product={product} />
             </div>
@@ -92,7 +112,7 @@ const Landing = () => {
       </div>      
       </div>
       <div className="paginations">
-   <Pagination/>
+   <Pagination elementsPerPage={productsPerPage} totalElements={filtredList.length} paginate={paginate}/>
    </div>
     </Fragment>
   );

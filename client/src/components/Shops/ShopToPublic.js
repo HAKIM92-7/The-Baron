@@ -47,9 +47,11 @@ const ShopToPublic = () => {
       <br />
       <br />
 
-      <div className='sellerProducts' style={{ display: 'flex' }}>
+      <div className='sellerProducts' style={{ display: 'flex',flexWrap:'wrap' }}>
         {sellerProducts.map((product) => (
+          <div className="elementproduct" style={{marginRight:'10px' , marginTop:'10px'}}>
           <ProductCard product={product} />
+          </div>
         ))}
       </div>
     </Fragment>

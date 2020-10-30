@@ -36,7 +36,7 @@ const Navbar = () => {
       >
         <div className='navbar-brand'>
           <Link to='/' className='navbar-item'>
-            <img src='' width='112' height='28' />
+            <img src='https://upload.wikimedia.org/wikipedia/commons/c/c7/B-logo-1.png'/>
           </Link>
 
           <a
@@ -63,15 +63,16 @@ const Navbar = () => {
                 className='navbar-item'
                 style={{ color: 'aqua' }}
                 onClick={() => {
-                  dispatch(getShopByID(seller.id));
-                  dispatch(getProductsBySeller(seller.id));
+                  dispatch(getShopByID(seller._id));
+                  
+                  dispatch(getProductsBySeller(seller._id));
                 }}
               >
                 Dashboard
               </Link>
             ) : (
-              ''
-            )}
+                ''
+              )}
             {user && isAuthenticatedUser ? (
               <Link
                 to='/user-orders'
@@ -91,8 +92,8 @@ const Navbar = () => {
                 Become a seller
               </Link>
             ) : (
-              ''
-            )}
+                  ''
+                )}
 
             <Link
               to='/allShops'
@@ -139,8 +140,8 @@ const Navbar = () => {
                     </Link>
                   </>
                 ) : (
-                  ''
-                )}
+                      ''
+                    )}
                 {seller && isAuthenticatedSeller ? (
                   <>
                     <Link
@@ -160,8 +161,8 @@ const Navbar = () => {
                         <strong>Add a product</strong>
                       </Link>
                     ) : (
-                      ''
-                    )}
+                        ''
+                      )}
                   </>
                 ) : !user && !isAuthenticatedUser ? (
                   <Link
@@ -172,8 +173,8 @@ const Navbar = () => {
                     <strong>Login as Seller</strong>
                   </Link>
                 ) : (
-                  ''
-                )}{' '}
+                      ''
+                    )}{' '}
                 {!seller ? (
                   <Link
                     to='/basket'
@@ -183,8 +184,8 @@ const Navbar = () => {
                     <i className='fas fa-shopping-basket'></i>
                   </Link>
                 ) : (
-                  ''
-                )}
+                    ''
+                  )}
               </div>
             </div>
           </div>

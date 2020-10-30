@@ -42,7 +42,7 @@ let shopSchema = new mongoose.Schema({
   },
 
   logo: {
-    type: String,
+    type:String,
   },
 
   creation_date: {

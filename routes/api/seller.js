@@ -79,7 +79,7 @@ router.post(
                   token,
 
                   seller: {
-                    id: seller.id,
+                    _id: seller.id,
                     name: seller.firstname + ' ' + seller.lastname,
                     email: seller.email,
                   },

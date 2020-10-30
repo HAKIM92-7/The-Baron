@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import {useHistory} from 'react-router';
 
 import { passAnOrder } from '../../redux/actions/orderActions';
 import { clearBasket } from '../../redux/actions/productActions';
 
 const OrderInfos = () => {
+  const history = useHistory();
   const basket = useSelector((state) => state.product.basket);
   const [formData, setFormData] = useState({
     adress_of_delivery: '',
@@ -21,7 +23,7 @@ const OrderInfos = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    dispatch(passAnOrder(basket, adress_of_delivery, postal_code, telephone));
+    dispatch(passAnOrder(basket, adress_of_delivery, postal_code, telephone , history));
   };
 
   const dispatch = useDispatch();

@@ -7,6 +7,7 @@ import {
   USER_ORDERS_FAIL,
   CLEAR_USER_ORDERS,
   GET_ORDER,
+  CLEAR_ORDER
   
 } from './types';
 
@@ -18,7 +19,8 @@ export const passAnOrder = (
   listofproducts,
   adress_of_delivery,
   postal_code,
-  telephone
+  telephone, 
+  history
 ) => async (dispatch, getState) => {
   try {
     const res = await axios.post(
@@ -37,9 +39,10 @@ export const passAnOrder = (
 
       payload: res.data,
     });
-
-    dispatch(setAlert('Order Passed ', 'success'));
+ history.push('/');
+ window.alert('Order success !');
     dispatch(clearBasket());
+   
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -104,7 +107,10 @@ export const getOrderByOrderId = (orderId) => async (dispatch,getState) => {
     });
   }
 };
-
+//CLEAR Order
+export const clearOrder = () => (dispatch) => {
+  dispatch({ type: CLEAR_ORDER });
+};
 
 
 //CLEAR USER ORDERS

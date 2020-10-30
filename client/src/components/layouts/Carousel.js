@@ -21,7 +21,7 @@ const Carousel = () => {
         <div class='carousel-inner active'>
           <div class='carousel-item active'>
             <img
-              src='https://cristianlay.com/tn/media/catalog/category/categoria-bisuteria.png'
+              src='https://cms.intersport.fr/wp-content/uploads/2019/08/bg-img-4_mobile-1.jpg'
               style={{ height: '300px' }}
               class='d-block w-100'
               alt='...'
@@ -29,7 +29,7 @@ const Carousel = () => {
           </div>
           <div class='carousel-item'>
             <img
-              src='https://i.pinimg.com/originals/22/e4/56/22e456b3aca1fe9574092be81ef78fe0.jpg'
+              src='https://i.ytimg.com/vi/ctbwMTMTVfw/maxresdefault.jpg'
               style={{ height: '300px' }}
               class='d-block w-100'
               alt='...'

@@ -74,6 +74,7 @@ router.post(
     if (image3) productFields.images.image3 = image3;
 
     try {
+
       const product = new Product(productFields);
 
       await product.save();
