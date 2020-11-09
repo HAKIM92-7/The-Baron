@@ -7,6 +7,8 @@ const Shop = require('../../models/Shop');
 const User = require('../../models/User');
 const Seller = require('../../models/Seller');
 const Product = require('../../models/Product');
+const path = require ('path');
+const fs= require('fs');
 
 // @route  GET  api/shop/me
 // @desc   current seller shop
@@ -91,7 +93,7 @@ router.post(
     if (adress) shopFields.adress = adress;
     if (country) shopFields.country = country;
     if (description) shopFields.description = description;
-    if (logo) shopFields.logo = logo;
+    if (logo) shopFields.logo=logo ;
 
     try {
       let shop = await Shop.findOne({ seller: req.user.id });
@@ -117,6 +119,46 @@ router.post(
     }
   }
 );
+
+// @route  POST  api/shop/upload
+// @desc   upload shop logo
+// @access Private
+
+router.post('/upload',auth, (req, res) => {
+
+  if (req.files === null) {
+
+    return res.status(400).json({ errors: [{ msg: 'no logo uploaded' }] });
+
+  }
+
+  const file = req.files.file;  
+  
+  file.mv(path.join(__dirname , `../../client/public/uploads/shops_logos/${file.name}`), err => {
+ 
+
+    if (err) {
+
+      console.error(err);
+      return res.status(500).send(err);
+    }
+    res.json({ fileName: file.name, filePath: `/uploads/shops_logos/${file.name}` });
+  }) ;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // @route  GET  api/shop
 // @desc   Get all shops

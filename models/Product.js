@@ -38,7 +38,7 @@ let productSchema = new mongoose.Schema({
   images: {
     image1: {
       type: String,
-      required: true,
+      require:true
     },
     image2: {
       type: String,
@@ -52,6 +52,7 @@ let productSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+ 
 });
 
 module.exports = mongoose.model('produit', productSchema);

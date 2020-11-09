@@ -13,6 +13,8 @@ import {
   ADD_TO_BASKET,
   DELETE_FROM_BASKET,
   CLEAR_BASKET,
+  IMAGES_UPLOADED,
+  UPLOAD_ERROR,
 } from './types';
 import { getCurrentShop } from './shopActions';
 
@@ -47,6 +49,47 @@ export const addProduct = (formData, history) => async (dispatch, getState) => {
   }
 };
 
+// Upload product images
+export const uploadImages=(file) => async  (dispatch,getState) => {
+
+const formdata = new FormData();
+formdata.append('file',file);
+
+try {
+  const res = await axios.post('/api/products/upload',formdata ,tokenConfig(getState));
+
+dispatch ({
+  type:IMAGES_UPLOADED,
+  payload:res.data});
+
+
+
+  
+
+} catch (err) {
+  const errors = err.response.data.errors;
+
+  if (errors) {
+    errors.forEach((error) => {
+      dispatch(setAlert(error.msg, 'danger'));
+    });
+  }
+
+  dispatch({
+    type: UPLOAD_ERROR,
+    payload: { msg: err.response.statusText, status: err.response.status },
+  });
+
+
+
+  
+}
+
+
+
+
+}
+ 
 // GET ALL PRODUCTS
 
 export const getAllProducts = () => async (dispatch) => {

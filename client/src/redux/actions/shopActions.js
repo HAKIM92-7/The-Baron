@@ -5,6 +5,8 @@ import {
   GET_SHOPS,
   SHOP_REMOVED,
   SHOP_REMOVE_FAIL,
+  LOGO_UPLOADED, 
+  LOGO_ERROR
 } from './types';
 
 import axios from 'axios';
@@ -42,6 +44,40 @@ export const createShop = (formData, history, edit = false) => async (
     }
   }
 };
+
+// upload shop logo 
+
+export const uploadLogo=(file) => async  (dispatch,getState) => {
+
+  const formdata = new FormData();
+  formdata.append('file',file);
+  
+  try {
+    const res = await axios.post('/api/shop/upload',formdata ,tokenConfig(getState));
+  
+  dispatch ({
+    type:LOGO_UPLOADED,
+    payload:res.data});
+
+  
+  } catch (err) {
+    const errors = err.response.data.errors;
+  
+    if (errors) {
+      errors.forEach((error) => {
+        dispatch(setAlert(error.msg, 'danger'));
+      });
+    }
+  
+    dispatch({
+      type: LOGO_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  
+  } }
+
+
+
 
 // GET CURRENT SHOP
 

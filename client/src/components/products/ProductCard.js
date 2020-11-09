@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
           {' '}
           <img
             className='card-img-top'
-            src={product.images.image1}
+            src={process.env.PUBLIC_URL + product.images.image1}
             alt='Product image non loaded'
             style={{ height: '200px', width: '300px' }}
           />

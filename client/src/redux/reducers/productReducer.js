@@ -11,6 +11,8 @@ import {
   ADD_TO_BASKET,
   DELETE_FROM_BASKET,
   CLEAR_BASKET,
+  IMAGES_UPLOADED,
+  UPLOAD_ERROR
 } from '../actions/types';
 
 const initialState = {
@@ -19,6 +21,7 @@ const initialState = {
   basket: [],
   product: null,
   loading: true,
+  uploads:[],
   error: {},
 };
 
@@ -32,6 +35,8 @@ export default function (state = initialState, { type, payload }) {
         product: payload,
         loading: false,
       };
+
+    
 
     case GET_PRODUCTS:
       return {
@@ -83,6 +88,7 @@ export default function (state = initialState, { type, payload }) {
         loading: false,
       };
     case PRODUCT_ERROR:
+    case UPLOAD_ERROR:
       return {
         ...state,
         error: payload,

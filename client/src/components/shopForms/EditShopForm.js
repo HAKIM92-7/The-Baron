@@ -2,8 +2,8 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
-import { createShop, getCurrentShop } from '../../redux/actions/shopActions';
-
+import { createShop, getCurrentShop, uploadLogo } from '../../redux/actions/shopActions';
+import path from 'path';
 const EditShopForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -18,7 +18,7 @@ const EditShopForm = () => {
     description: '',
     logo: '',
   });
-
+  const [file , setFile] =useState (null);
   const shop = useSelector((state) => state.shop.shop);
   const loading = useSelector((state) => state.shop.loading);
   useEffect(() => {
@@ -51,12 +51,15 @@ const EditShopForm = () => {
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const onChangeLogo = e => {
+    setFile( e.target.files[0]);
+  setFormData({...formData , logo :`/uploads/shops_logos/${e.target.files[0].name}`})}
  
   const onSubmit = (e) => {
     e.preventDefault();
 
     dispatch(createShop(formData, history, true));
-
+    dispatch(uploadLogo(file));
   };
   return (
     <Fragment>
@@ -430,20 +433,31 @@ const EditShopForm = () => {
             ></textarea>
           </div>
         </div>
-        <div className='field'>
-          <label className='label'>Logo</label>
-          <div className='control'>
-            <input
-              className='input'
-              type='text'
-              placeholder='Url of Logo'
-              name='logo'
-              value={logo}
-              onChange={onChange}
-            />
-          </div>
-        </div>
-
+        
+        <div className="file has-name">
+  <label className="file-label">
+    
+  <input
+                  className="file-input"
+                  type='file'
+                  accept="image/png, image/jpeg , image/jpg"
+                  name='logo'
+                 
+                  onChange={onChangeLogo}
+                />
+    <span className="file-cta">
+      <span className="file-icon">
+        <i className="fas fa-upload"></i>
+      </span>
+      <span className="file-label">
+        Change the logo…
+      </span>
+    </span>
+    <span className="file-name">
+      {path.basename(logo)}
+    </span>
+  </label>
+</div>
      
         <div className='field is-grouped'>
           <div className='control'>

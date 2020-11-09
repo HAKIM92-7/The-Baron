@@ -40,6 +40,10 @@ export const SHOP_REMOVED = 'SHOP_REMOVED';
 export const SHOP_REMOVE_FAIL = 'SHOP_REMOVE_FAIL';
 export const GET_ORDER = 'GET_ORDER';
 export const CLEAR_ORDER = 'CLEAR_ORDER';
+export const IMAGES_UPLOADED = 'IMAGES_UPLOADED';
+export const UPLOAD_ERROR = 'UPLOAD_ERROR';
+export const LOGO_UPLOADED = 'LOGO_UPLOADED';
+export const LOGO_ERROR = 'LOGO_ERROR';
 
 
 

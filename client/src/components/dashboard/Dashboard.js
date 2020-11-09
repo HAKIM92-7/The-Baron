@@ -29,7 +29,7 @@ const Dashboard = () => {
   const loading = useSelector((state) => state.shop.loading);
   const sellerProducts = useSelector((state) => state.product.sellerProducts);
 
-  const currentProducts = sellerProducts.slice(0,8);
+  const currentProducts = sellerProducts.slice(0,12);
 
   return (
     <Fragment>
@@ -68,7 +68,7 @@ const Dashboard = () => {
         </Fragment>
       ) : ( 
         <Fragment>
-          <Spinner />
+         <Spinner/>
         </Fragment>
       )}
     </Fragment>

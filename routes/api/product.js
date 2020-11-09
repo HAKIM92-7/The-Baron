@@ -5,6 +5,7 @@ const { check, validationResult } = require('express-validator');
 const Shop = require('../../models/Shop');
 const Seller = require('../../models/Seller');
 const Product = require('../../models/Product');
+const path = require('path');
 
 // @route  POST  api/products
 // @desc   Create a product
@@ -19,9 +20,10 @@ router.post(
       check('price', 'Enter a price ').not().isEmpty(),
       check('quantity', 'Enter a quantity for this product').not().isEmpty(),
       check('category', 'Enter a category').not().isEmpty(),
-      check('image1', 'enter at least 1 image for your product')
-        .not()
-        .isEmpty(),
+      check('image1', 'upload at least 1 image').not().isEmpty(),
+
+
+
     ],
   ],
   async (req, res) => {
@@ -69,9 +71,15 @@ router.post(
     if (description) productFields.description = description;
     if (category) productFields.category = category;
     productFields.images = {};
+
+
+
     if (image1) productFields.images.image1 = image1;
     if (image2) productFields.images.image2 = image2;
     if (image3) productFields.images.image3 = image3;
+
+
+
 
     try {
 
@@ -86,6 +94,30 @@ router.post(
     }
   }
 );
+
+// @route  POST  api/products/upload
+// @desc   upload product images
+// @access Private
+
+router.post('/upload',auth, (req, res) => {
+
+  if (req.files === null) {
+
+    return res.status(400).json({ errors: [{ msg: 'no file uploaded' }] });
+
+  }
+
+  const file = req.files.file;
+  file.mv(path.join(__dirname , `../../client/public/uploads/products_images/${file.name}`), err => {
+
+    if (err) {
+
+      console.error(err);
+      return res.status(500).send(err);
+    }
+    res.json({ fileName: file.name, filePath: `/uploads/products_images/${file.name}` });
+  });
+});
 
 // @route  PUT  api/products/:product_id
 // @desc   update a product

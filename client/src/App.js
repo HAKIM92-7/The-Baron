@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import Navbar from './components/layouts/Navbar';
 import Landing from './components/layouts/Landing';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import {  Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
@@ -48,6 +48,7 @@ function App() {
         <Alert />
        
         <Switch>
+          
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/registerSeller' component={RegisterSeller} />
@@ -66,6 +67,7 @@ function App() {
           <Route path='/register-to-order' component={RegisterToOrder} />
           <Route path='/login-to-order' component={LoginToOrder} />
           <Route path='/basket' component={Basket} />
+        
         </Switch>
         
          

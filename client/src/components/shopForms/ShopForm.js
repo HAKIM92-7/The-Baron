@@ -1,8 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
-import { createShop } from '../../redux/actions/shopActions';
+import { createShop, uploadLogo } from '../../redux/actions/shopActions';
 import { useHistory } from 'react-router';
+import path from 'path';
+import { setAlert } from '../../redux/actions/alertActions';
 
 const ShopForm = () => {
   const dispatch = useDispatch();
@@ -18,6 +20,7 @@ const ShopForm = () => {
     description: '',
     logo: '',
   });
+  const [file , setFile] =useState (null);
 
   const {
     nameofshop,
@@ -33,9 +36,16 @@ const ShopForm = () => {
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const onChangeLogo = e => {
+    setFile( e.target.files[0]);
+  setFormData({...formData , logo :`/uploads/shops_logos/${e.target.files[0].name}`})
+
+
+  }
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(createShop(formData, history, false));
+    logo? dispatch(uploadLogo(file)):setAlert('no logo uploaded','danger');
   };
 
  
@@ -413,19 +423,30 @@ const ShopForm = () => {
           </div>
         </div>
 
-        <div className='field'>
-          <label className='label'>Logo</label>
-          <div className='control'>
-            <input
-              className='input'
-              type='text'
-              placeholder='Url of Logo'
-              name='logo'
-              value={logo}
-              onChange={onChange}
-            />
-          </div>
-        </div>
+        <div className="file has-name">
+  <label className="file-label">
+    
+  <input
+                  className="file-input"
+                  type='file'
+                  accept="image/png, image/jpeg , image/jpg"
+                  name='logo'
+                 
+                  onChange={onChangeLogo}
+                />
+    <span className="file-cta">
+      <span className="file-icon">
+        <i className="fas fa-upload"></i>
+      </span>
+      <span className="file-label">
+        Choose a logo for your shop…
+      </span>
+    </span>
+    <span className="file-name">
+      {path.basename(logo)}
+    </span>
+  </label>
+</div>
   
 
         <div className="field is-grouped">

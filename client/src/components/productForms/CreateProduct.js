@@ -1,7 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import { addProduct } from '../../redux/actions/productActions';
+import { setAlert } from '../../redux/actions/alertActions';
+import { addProduct, uploadImages } from '../../redux/actions/productActions';
+import path from 'path';
 
 const CreateProduct = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,10 @@ const CreateProduct = () => {
     image2: '',
     image3: '',
   });
+const [files , setFiles] =useState ([]);
+
+
+
 
   const {
     title,
@@ -33,9 +39,24 @@ const CreateProduct = () => {
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const onChangeFiles = (e) => {
+    setFiles([...files, e.target.files[0]]);
+    
+    setFormData({...formData , [e.target.name] : `/uploads/products_images/${e.target.files[0].name}` })
+  };
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(addProduct(formData, history));
+
+  
+
+
+     dispatch(addProduct(formData, history));
+      files.length>0 ?files.map((file) =>{
+       dispatch(uploadImages(file));}
+    ):dispatch(setAlert('no file uploaded','danger'));
+    
+  
+   
   };
   return (
     <Fragment>
@@ -135,48 +156,80 @@ const CreateProduct = () => {
           </div>
         </div>
 
-        <div className='field'>
-          <label className='label'>Image 1</label>
-          <div className='control'>
-            <input
-              className='input'
-              type='text'
-              placeholder='url image 1 '
-              name='image1'
-              value={image1}
-              onChange={onChange}
-            />
-          </div>
-        </div>
+        <div className="file has-name">
+  <label className="file-label">
+  <input
+                  className="file-input"
+                  type='file'
+                  accept="image/png, image/jpeg , image/jpg"
+                  name='image1'
+                 
+                  onChange={onChangeFiles}
+                />
+    <span className="file-cta">
+      <span className="file-icon">
+        <i className="fas fa-upload"></i>
+      </span>
+      <span className="file-label">
+        Choose a file…
+      </span>
+    </span>
+    <span className="file-name">
+      {path.basename(image1)}
+    </span>
+  </label>
+</div>
 
-        <div className='field'>
-          <label className='label'>image2 </label>
-          <div className='control'>
-            <input
-              className='input'
-              type='text'
-              placeholder='url image 2 '
-              name='image2'
-              value={image2}
-              onChange={onChange}
-            />
-          </div>
-        </div>
+<div className="file has-name">
+  <label className="file-label">
+  <input
+                  className="file-input"
+                  type='file'
+                 
+                  name='image2'
+                  accept="image/png, image/jpeg , image/jpg"
+                  onChange={onChangeFiles}
+                />
+    <span className="file-cta">
+      <span className="file-icon">
+        <i className="fas fa-upload"></i>
+      </span>
+      <span className="file-label">
+        Choose a file…
+      </span>
+    </span>
+    <span className="file-name">
+ {path.basename(image2)}
+    </span>
+  </label>
+</div>
 
-        <div className='field'>
-          <label className='label'>Image 3</label>
-          <div className='control'>
-            <input
-              className='input'
-              type='text'
-              placeholder='url image 3'
-              name='image3'
-              value={image3}
-              onChange={onChange}
-            />
-          </div>
-        </div>
+<div className="file has-name">
+  <label className="file-label">
+  <input
+                  className="file-input"
+                  type='file'
+                  
+                  name='image3'
+                  accept="image/png, image/jpeg , image/jpg"
+                  onChange={onChangeFiles}
+                />
+    <span className="file-cta">
+      <span className="file-icon">
+        <i className="fas fa-upload"></i>
+      </span>
+      <span className="file-label">
+        Choose a file…
+      </span>
+    </span>
+    <span className="file-name">
+      {path.basename(image3)}
+    </span>
+  </label>
+</div>
 
+
+       
         <div className='field is-grouped'>
           <div className='control'>
             <button className='button is-link'>Submit</button>
