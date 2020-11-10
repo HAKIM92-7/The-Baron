@@ -75,10 +75,11 @@ const [image , setImage] =useState ('');
                   +
                 </button>{' '}
                 <input
-                  type='number'
+                  type='text'
                   id='inp2'
                   className='inp'
                   value={quantityToOrder}
+                 
                 />
                 <button
                   className='moins btn btn-danger'
