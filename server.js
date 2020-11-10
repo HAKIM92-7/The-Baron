@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const Port = 5000;
+const Port = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 const fileUpload = require('express-fileupload');
 const connectDB = require('./database/connect');
