@@ -134,7 +134,20 @@ router.post('/upload',auth, (req, res) => {
 
   const file = req.files.file;  
   
-  file.mv(path.join(__dirname , `../../client/public/uploads/shops_logos/${file.name}`), err => {
+
+  fs.readdir(path.join(__dirname , `../../client/public/uploads/shops_logos`),function(err, files) {
+    if (err) {
+       return console.error(err);
+    }
+  
+    
+      
+ 
+    
+ 
+if (!files.includes(file.name) )
+{
+file.mv(path.join(__dirname , `../../client/public/uploads/shops_logos/${file.name}`), err => {
  
 
     if (err) {
@@ -143,7 +156,7 @@ router.post('/upload',auth, (req, res) => {
       return res.status(500).send(err);
     }
     res.json({ fileName: file.name, filePath: `/uploads/shops_logos/${file.name}` });
-  }) ;
+  }) ;}});
 });
 
 

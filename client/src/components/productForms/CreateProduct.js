@@ -155,9 +155,11 @@ const [files , setFiles] =useState ([]);
             </div>
           </div>
         </div>
-
+<br/>
         <div className="file has-name">
   <label className="file-label">
+  image 1 
+
   <input
                   className="file-input"
                   type='file'
@@ -179,9 +181,9 @@ const [files , setFiles] =useState ([]);
     </span>
   </label>
 </div>
-
+<br/>
 <div className="file has-name">
-  <label className="file-label">
+  <label className="file-label"> image 2
   <input
                   className="file-input"
                   type='file'
@@ -203,9 +205,10 @@ const [files , setFiles] =useState ([]);
     </span>
   </label>
 </div>
+<br/>
 
 <div className="file has-name">
-  <label className="file-label">
+  <label className="file-label"> image 3
   <input
                   className="file-input"
                   type='file'
@@ -228,7 +231,7 @@ const [files , setFiles] =useState ([]);
   </label>
 </div>
 
-
+<br/>
        
         <div className='field is-grouped'>
           <div className='control'>
