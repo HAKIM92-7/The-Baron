@@ -12,7 +12,7 @@
   background: no-repeat center center scroll;
 }
 #search {
-  margin-left: 800px;
+  margin-left: 700px;
   margin-top: 10px;
 }
 
@@ -46,4 +46,51 @@
 }
 .paginations {
   margin-left: 800px;
+}
+
+@media screen and (max-width: 600px) {
+  #listofproducts {
+    display: flex;
+
+    margin-left: 20px;
+    flex-wrap: wrap;
+  }
+
+  #search {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  .productcard {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .listlength {
+    margin-left: 550px;
+  }
+  #v-pills-tab {
+    margin-left: 30px;
+    width: 300px;
+    background-color: grey;
+    border-radius: 10px;
+  }
+  .filterandproducts {
+    display: flex;
+  }
+  .pagination {
+    display: flex;
+    justify-content: space-around;
+  }
+  .alert {
+    width: 200px;
+    margin-left: 550px;
+    text-align: center;
+  }
+  .nav-link {
+    color: aqua;
+  }
+  .paginations {
+    margin-left: 150px;
+  }
 }
