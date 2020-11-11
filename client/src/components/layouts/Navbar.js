@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment,useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../redux/actions/authActions';
 import { logoutSeller } from '../../redux/actions/authSellerActions';
@@ -27,6 +27,9 @@ const Navbar = () => {
   const user = useSelector((state) => state.auth.user);
   const seller = useSelector((state) => state.authSeller.seller);
   const shop = useSelector((state) => state.shop.shop);
+
+
+
   return (
     <Fragment>
       <nav
@@ -41,21 +44,22 @@ const Navbar = () => {
           </Link>
 
           <a
-            role='button'
+            role="button" 
             className='navbar-burger burger'
-            aria-label='menu'
-            aria-expanded='false'
-            data-target='navbarBasicExample'
+            aria-label="menu" 
+            aria-expanded="false"
+            
+            data-target='navMenu'
           >
-            <span aria-hidden='true'></span>
-            <span aria-hidden='true'></span>
-            <span aria-hidden='true'></span>
-          </a>
-        </div>
-
+            <span ></span>
+            <span ></span>
+            <span ></span>
+          
+        </a>
+</div>
         <div id='navbarBasicExample' className='navbar-menu'>
-          <div className='navbar-start'>
-            <Link to='/' className='navbar-item' style={{ color: 'aqua' }}>
+          <div id="navMenu" className='navbar-start'>
+            <Link to='/' className='navbar-item is-active' style={{ color: 'aqua' }}>
               Home
             </Link>
             {isAuthenticatedSeller && !user ? (
@@ -192,6 +196,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      
     </Fragment>
   );
 };

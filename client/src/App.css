@@ -8,7 +8,10 @@
   max-width: 1200px;
   margin: 5% auto;
 }
+.navbaar {
+  max-width: 100%;
+}
 #foot {
-  width: 100%;
+  max-width: 100%;
   margin-top: 500px;
 }

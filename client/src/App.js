@@ -42,7 +42,9 @@ function App() {
 
   return (
     <Fragment>
+      <div className="navbaar">
       <Navbar />
+      </div>
       <Route exact={true} path='/' component={Landing} />
       <div className='container'>
         <Alert />
