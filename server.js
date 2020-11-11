@@ -20,18 +20,6 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/authSeller', require('./routes/api/authSeller'));
 
 
-if(process.env.NODE_ENV === 'production') {
-
-app.use(express.static('client/build'));
-
-app.get('*',(req,res) => {
-
-res.sendFile(path.resolve(__dirname , 'client' , 'build' , 'index.html'));
-
-
-
-});
-}
 
 
 
