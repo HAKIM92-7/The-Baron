@@ -110,13 +110,13 @@ router.post('/upload',auth, (req, res) => {
 
   const file = req.files.file;
 
-  fs.readdir(path.join(__dirname , `../../client/public/uploads/products_images`),function(err, files) {
+  fs.readdir(path.join(__dirname , `../../client/build/public/uploads/products_images`),function(err, files) {
     if (err) {
        return console.error(err);
     }
 
     if (!files.includes(file.name) ) {
-  file.mv(path.join(__dirname , `../../client/public/uploads/products_images/${file.name}`), err => {
+  file.mv(path.join(__dirname , `../../client/build/public/uploads/products_images/${file.name}`), err => {
 
     if (err) {
 
