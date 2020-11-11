@@ -110,7 +110,12 @@ router.post('/upload',auth, (req, res) => {
 
   const file = req.files.file;
 
- 
+  fs.readdir(path.join(__dirname , `../../client/public/uploads/products_images`),function(err, files) {
+    if (err) {
+       return console.error(err);
+    }
+
+    if (!files.includes(file.name) ) {
   file.mv(path.join(__dirname , `../../client/public/uploads/products_images/${file.name}`), err => {
 
     if (err) {
@@ -119,7 +124,7 @@ router.post('/upload',auth, (req, res) => {
       return res.status(500).send(err);
     }
     res.json({ fileName: file.name, filePath: `/uploads/products_images/${file.name}` });
-
+  });}
 }); });
 
 // @route  PUT  api/products/:product_id
