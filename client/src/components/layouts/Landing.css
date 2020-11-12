@@ -1,8 +1,9 @@
 #listofproducts {
   display: flex;
-
-  margin-left: 100px;
   flex-wrap: wrap;
+
+  grid-column-start: 2;
+  grid-column-end: 4;
 }
 #carousel {
   height: 300px;
@@ -24,13 +25,14 @@
   margin-left: 550px;
 }
 #v-pills-tab {
-  margin-left: 30px;
-  width: 300px;
-  background-color: grey;
-  border-radius: 10px;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  background-color: khaki;
+  margin-left: 10px;
 }
 .filterandproducts {
-  display: flex;
+  display: grid;
+  grid-template-columns: 180px auto auto auto;
 }
 .pagination {
   display: flex;
@@ -42,55 +44,8 @@
   text-align: center;
 }
 .nav-link {
-  color: aqua;
+  color: grey;
 }
 .paginations {
   margin-left: 800px;
-}
-
-@media screen and (max-width: 600px) {
-  #listofproducts {
-    display: flex;
-
-    margin-left: 20px;
-    flex-wrap: wrap;
-  }
-
-  #search {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-  }
-
-  .productcard {
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-  .listlength {
-    margin-left: 550px;
-  }
-  #v-pills-tab {
-    margin-left: 30px;
-    width: 300px;
-    background-color: grey;
-    border-radius: 10px;
-  }
-  .filterandproducts {
-    display: flex;
-  }
-  .pagination {
-    display: flex;
-    justify-content: space-around;
-  }
-  .alert {
-    width: 200px;
-    margin-left: 550px;
-    text-align: center;
-  }
-  .nav-link {
-    color: aqua;
-  }
-  .paginations {
-    margin-left: 150px;
-  }
 }
