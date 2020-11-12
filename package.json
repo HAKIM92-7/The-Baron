@@ -9,8 +9,9 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "postinstall": "node ./ops/heroku-build.js"
+    "build":"webpack" ,
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    
   },
   "author": "Hakim Barouni",
   "license": "ISC",
