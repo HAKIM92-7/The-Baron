@@ -59,3 +59,9 @@ h3 {
   grid-column-start: 3;
   grid-column-end: 4;
 }
+
+@media screen and (max-width: 600px) {
+  .productdetails img {
+    max-width: 400px;
+  }
+}
