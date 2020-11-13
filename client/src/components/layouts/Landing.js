@@ -94,11 +94,11 @@ const Landing = () => {
 {filtredList.length} Products
 </div>  
        <div className="filterandproducts">
-         { currentPage ===1 ?
+         
         <div id="categories">
           <CategoriesFilter setCategory={setCategory}/>
-          </div>: ''
-}
+          </div>
+
       <div className='container'>
        
         <div id='listofproducts'>

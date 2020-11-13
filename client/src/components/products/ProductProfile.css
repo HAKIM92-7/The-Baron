@@ -37,9 +37,7 @@ h3 {
   margin-bottom: 100px;
   margin-top: 150px;
 }
-.autresimages {
-  margin-left: 300px;
-}
+
 .autresimages img {
   width: 100px;
   height: 100px;
@@ -49,7 +47,8 @@ h3 {
 }
 .productdetails img {
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 2;
+  max-width: 800px;
 }
 
 .productCard {

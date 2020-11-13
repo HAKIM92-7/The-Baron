@@ -11,7 +11,7 @@ const ShopItem = ({ shop }) => {
 
   return (
     <Fragment>
-      <div class='card'>
+      <div  id="shopitem" class='card' style={{width:"400px"}}>
         <div class='card-content'>
           <div class='media'>
             <div class='media-left'>
