@@ -1,6 +1,11 @@
 .productdetails {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 25%;
+}
+
+.card-header {
+  background-color: black;
+  color: azure;
 }
 
 .plus {
@@ -48,7 +53,6 @@ h3 {
 .productdetails img {
   grid-column-start: 1;
   grid-column-end: 2;
-  max-width: 800px;
 }
 
 .productCard {
@@ -64,6 +68,5 @@ h3 {
   .productdetails img {
     grid-column-start: 1;
     grid-column-end: 2;
-    max-width: 100px;
   }
 }
