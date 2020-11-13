@@ -13,7 +13,7 @@
   background: no-repeat center center scroll;
 }
 #search {
-  margin-left: 700px;
+  margin-left: 500px;
   margin-top: 10px;
 }
 
@@ -48,4 +48,24 @@
 }
 .paginations {
   margin-left: 800px;
+}
+@media screen and (max-width: 600px) {
+  #search {
+    margin-left: 10px;
+
+    margin-top: 10px;
+  }
+  .listlength {
+    margin-left: 550px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-around;
+  }
+  .alert {
+    width: 200px;
+    margin-left: 200px;
+    text-align: center;
+  }
 }

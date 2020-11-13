@@ -1,0 +1,9 @@
+@media screen and (max-width: 600px) {
+  .card-img-top {
+    max-width: 80px;
+    max-height: 80px;
+  }
+  .card {
+    max-width: 80px;
+  }
+}

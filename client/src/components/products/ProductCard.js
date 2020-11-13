@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useDispatch } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
-
+import './ProductCard.css' ;
 import {
   getProductByProductId,
   getProductsBySeller,

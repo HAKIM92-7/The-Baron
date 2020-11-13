@@ -30,7 +30,7 @@ const [image , setImage] =useState ('');
     <Fragment>
       <div
         className='productdetails'
-        style={{ display: 'flex', marginBottom: '20px' }}
+        
       >
         <img
           src={ image==='' || (image!==product.images.image2 && image!==product.images.image3) ?product.images.image1:image}
@@ -39,7 +39,7 @@ const [image , setImage] =useState ('');
          
         />
        
-        <div className='card'>
+        <div id="profilecard" className='card'>
           <div className='card-header'>{product.title}</div>
           <div className='card-body'>
             <h4 className='card-title'>
