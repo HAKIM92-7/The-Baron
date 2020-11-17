@@ -1,9 +1,10 @@
 @media screen and (max-width: 600px) {
   .card-img-top {
-    max-width: 80px;
+    max-width: 100px;
     max-height: 80px;
   }
   .card {
-    max-width: 80px;
+    max-width: 100px;
+    height: 150px;
   }
 }

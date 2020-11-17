@@ -53,6 +53,7 @@ h3 {
 .productdetails img {
   grid-column-start: 1;
   grid-column-end: 2;
+  max-width: 800 px;
 }
 
 .productCard {
@@ -62,11 +63,6 @@ h3 {
 #profilecard {
   grid-column-start: 3;
   grid-column-end: 4;
-}
-
-@media screen and (max-width: 600px) {
-  .productdetails img {
-    grid-column-start: 1;
-    grid-column-end: 2;
-  }
+  min-width: 300px;
+  min-height: 750px;
 }

@@ -109,11 +109,11 @@ const Landing = () => {
             </div>
           ))}
         </div>
-      </div>      
+      </div>    
       </div>
-      <div className="paginations">
+    <div className="paginations">
    <Pagination elementsPerPage={productsPerPage} totalElements={filtredList.length} paginate={paginate}/>
-   </div>
+   </div>   
     </Fragment>
   );
 };

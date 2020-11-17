@@ -26,15 +26,15 @@
 }
 #v-pills-tab {
   grid-column-start: 1;
-  grid-column-end: 1;
-  background-color: khaki;
+  grid-column-end: 2;
+
   margin-left: 10px;
 }
 .filterandproducts {
   display: grid;
   grid-template-columns: 180px auto auto auto;
 }
-.pagination {
+.paginations {
   display: flex;
   justify-content: space-around;
 }
@@ -46,9 +46,7 @@
 .nav-link {
   color: grey;
 }
-.paginations {
-  margin-left: 800px;
-}
+
 @media screen and (max-width: 600px) {
   #search {
     margin-left: 10px;
@@ -59,9 +57,9 @@
     margin-left: 550px;
   }
 
-  .pagination {
-    display: flex;
-    justify-content: space-around;
+  .paginations {
+    margin-top: 20px;
+    margin-left: auto;
   }
   .alert {
     width: 200px;
