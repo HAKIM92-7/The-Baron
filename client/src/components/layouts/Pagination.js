@@ -14,13 +14,13 @@ const Pagination = ({elementsPerPage , totalElements ,paginate }) => {
         <Fragment>
             <nav className="pagination" role="navigation" aria-label="pagination">
 
-  <ul className="pagination-list" >
-    { pageNumbers.map(number => (
-    <li key={number}> 
-      <a className="pagination-link " onClick={()=>paginate(number)} href="#" aria-label={`Page ${number}`} aria-current="page">{number}</a>
-    </li>
-    ))}
-  </ul>
+<ul className="pagination-list" >
+  { pageNumbers.map(number => (
+  <li key={number} style={{maxWidth:'50px'}}> 
+    <a className="pagination-link " onClick={()=>paginate(number)} href="#" aria-label={`Page ${number}`} aria-current="page">{number}</a>
+  </li>
+  ))}
+</ul>
 </nav>
         </Fragment>
     )

@@ -111,7 +111,7 @@ const Landing = () => {
         </div>
       </div>    
       </div>
-    <div className="paginations">
+    <div id="paginations">
    <Pagination elementsPerPage={productsPerPage} totalElements={filtredList.length} paginate={paginate}/>
    </div>   
     </Fragment>

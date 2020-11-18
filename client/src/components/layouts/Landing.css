@@ -34,10 +34,7 @@
   display: grid;
   grid-template-columns: 180px auto auto auto;
 }
-.paginations {
-  display: flex;
-  justify-content: space-around;
-}
+
 .alert {
   width: 200px;
   margin-left: 550px;
@@ -46,7 +43,9 @@
 .nav-link {
   color: grey;
 }
-
+#paginations {
+  margin-left: 47%;
+}
 @media screen and (max-width: 600px) {
   #search {
     margin-left: 10px;
@@ -56,11 +55,10 @@
   .listlength {
     margin-left: 550px;
   }
-
-  .paginations {
-    margin-top: 20px;
-    margin-left: auto;
+  #paginations {
+    margin-left: 40%;
   }
+
   .alert {
     width: 200px;
     margin-left: 200px;

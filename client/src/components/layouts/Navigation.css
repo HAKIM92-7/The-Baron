@@ -1,8 +1,7 @@
-li {
-  min-width: 200px;
+.navMenu li {
   margin-bottom: 20px;
   margin-top: 20px;
 }
-.link {
+.navig_link {
   color: blanchedalmond;
 }
