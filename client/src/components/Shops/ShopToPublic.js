@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Spinner from '../layouts/Spinner';
 import Moment from 'react-moment';
 import ProductCard from '../products/ProductCard';
+import './ShopToPublic.css';
 
 const ShopToPublic = () => {
   const shop = useSelector((state) => state.shop.shop);
@@ -22,7 +23,7 @@ const ShopToPublic = () => {
           alt='image non loaded'
           style={{ height: '600px', width: '400 px', marginRight: '20px' }}
         />
-        <div class='card'>
+        <div class='card shop_card'>
           <div class='card-header'>{shop.nameofshop}</div>
           <div class='card-body'>
             <h5 class='card-title'>{shop.fieldofbusiness}</h5>

@@ -1,0 +1,17 @@
+@media screen and (max-width: 600px) {
+  .shopdetails img {
+    max-width: 150px;
+
+    max-height: 520px;
+  }
+
+  .shop_card {
+    min-width: 170px;
+    min-height: 520px;
+  }
+
+  .card-title,
+  .card-text {
+    font-size: small;
+  }
+}
