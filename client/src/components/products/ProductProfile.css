@@ -53,7 +53,7 @@ h3 {
 .productdetails img {
   grid-column-start: 1;
   grid-column-end: 2;
-  max-width: 800 px;
+  min-width: 300px;
 }
 
 .productCard {
@@ -64,7 +64,7 @@ h3 {
   grid-column-start: 3;
   grid-column-end: 5;
   min-width: 200px;
-  min-height: 750px;
+  min-height: 850px;
 }
 
 @media screen and (max-width: 600px) {

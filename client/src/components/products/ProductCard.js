@@ -34,8 +34,8 @@ const ProductCard = ({ product }) => {
             {product.title}
           </h5>
           <br />
-          <br />
-          <h4>
+          
+          <h4 className="card-price">
             Price <span class='badge badge-secondary'>{product.price} DT</span>
           </h4>
         </div>

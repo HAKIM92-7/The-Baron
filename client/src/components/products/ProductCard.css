@@ -5,6 +5,12 @@
   }
   .card {
     max-width: 130px;
-    height: 200px;
+    height: 250px;
+  }
+  .card-title {
+    font-size: small;
+  }
+  .card-price {
+    font-size: small;
   }
 }
