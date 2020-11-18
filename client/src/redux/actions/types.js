@@ -44,6 +44,9 @@ export const IMAGES_UPLOADED = 'IMAGES_UPLOADED';
 export const UPLOAD_ERROR = 'UPLOAD_ERROR';
 export const LOGO_UPLOADED = 'LOGO_UPLOADED';
 export const LOGO_ERROR = 'LOGO_ERROR';
+export const SHOW_MENU = 'SHOW_MENU';
+
+
 
 
 

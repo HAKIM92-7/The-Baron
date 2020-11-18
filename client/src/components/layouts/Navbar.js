@@ -15,6 +15,8 @@ import {
   getProductsBySeller,
 } from '../../redux/actions/productActions';
 import { getMyOrders } from '../../redux/actions/orderActions';
+import Navigation from './Navigation';
+import './Navbar.css';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -27,7 +29,7 @@ const Navbar = () => {
   const user = useSelector((state) => state.auth.user);
   const seller = useSelector((state) => state.authSeller.seller);
   const shop = useSelector((state) => state.shop.shop);
-
+  const show_Menu=useSelector(state=>state.menu.showMenu);
 
 
   return (
@@ -38,24 +40,16 @@ const Navbar = () => {
         aria-label='main navigation'
         style={{ backgroundColor: 'grey' }}
       >
+        
+        <div id="navigationMenu">
+        <Navigation/>
+        </div>
         <div className='navbar-brand'>
           <Link to='/' className='navbar-item'>
             <img src='https://upload.wikimedia.org/wikipedia/commons/c/c7/B-logo-1.png'/>
           </Link>
 
-          <a
-            role="button" 
-            className='navbar-burger burger'
-            aria-label="menu" 
-            aria-expanded="false"
-            
-            data-target='navMenu'
-          >
-            <span ></span>
-            <span ></span>
-            <span ></span>
-          
-        </a>
+       
 </div>
         <div id='navbarBasicExample' className='navbar-menu'>
           <div id="navMenu" className='navbar-start'>

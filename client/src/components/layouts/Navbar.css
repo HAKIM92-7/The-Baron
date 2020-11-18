@@ -1,6 +1,5 @@
-@media screen and (max-width: 600px) {
-  .navbar-menu {
-    float: none;
-    width: 100%;
+@media screen and (min-width: 1024px) {
+  #navigationMenu {
+    display: none;
   }
 }
