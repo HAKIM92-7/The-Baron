@@ -31,6 +31,11 @@ const isAuthenticatedUser = useSelector(
         <ul>
         {user?
         <>
+         <li><Link to='/basket' className='link' onClick={()=>{
+            dispatch(showMenu());
+          
+            
+            }}>Your Basket</Link></li>
         <li><Link to='/' className='link' onClick={()=>dispatch(showMenu())}>Home</Link></li>
         <li><Link to='/' className='link' onClick={()=>{
             dispatch(logoutUser());
@@ -79,7 +84,7 @@ const isAuthenticatedUser = useSelector(
             
             
             
-            }}>Shops</Link></li>
+            }}>Create Product</Link></li>
 
 
 
@@ -93,6 +98,11 @@ const isAuthenticatedUser = useSelector(
 
 
         </>:<>
+        <li><Link to='/basket' className='link' onClick={()=>{
+            dispatch(showMenu());
+          
+            
+            }}>Your Basket</Link></li>
         <li><Link to='/' className='link' onClick={()=>dispatch(showMenu())}>Home</Link></li>
         
         <li><Link to='/allShops' className='link'  onClick={()=>{
