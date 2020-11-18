@@ -44,13 +44,14 @@ const Navbar = () => {
         <div id="navigationMenu">
         <Navigation/>
         </div>
+        {!show_Menu?
         <div className='navbar-brand'>
           <Link to='/' className='navbar-item'>
             <img src='https://upload.wikimedia.org/wikipedia/commons/c/c7/B-logo-1.png'/>
           </Link>
 
        
-</div>
+</div>:''}
         <div id='navbarBasicExample' className='navbar-menu'>
           <div id="navMenu" className='navbar-start'>
             <Link to='/' className='navbar-item is-active' style={{ color: 'aqua' }}>
