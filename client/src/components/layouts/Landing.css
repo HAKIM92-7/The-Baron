@@ -21,9 +21,7 @@
   margin-right: 10px;
   margin-bottom: 10px;
 }
-.listlength {
-  margin-left: 550px;
-}
+
 #v-pills-tab {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -52,32 +50,28 @@
 
     margin-top: 10px;
   }
-  .listlength {
-    margin-left: 550px;
+  #listlength {
+    margin-left: 20px;
+    max-width: 100px;
   }
   #paginations {
-    margin-left: 40%;
+    margin-left: 8%;
   }
   #v-pills-tab {
-    grid-column-start: 1;
-    grid-column-end: 1;
-
-    margin-left: 5px;
+    display: none;
   }
   #listofproducts {
     display: flex;
     flex-wrap: wrap;
-
-    grid-column-start: 2;
-    grid-column-end: 4;
+    margin-left: 20px;
   }
+
   .alert {
     width: 200px;
     margin-left: 200px;
     text-align: center;
   }
-  .listlength {
-    margin-left: 350px;
-    max-width: 100px;
+  .filterandproducts {
+    display: flex;
   }
 }
