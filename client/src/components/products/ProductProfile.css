@@ -68,6 +68,10 @@ h3 {
 }
 
 @media screen and (max-width: 600px) {
+  .productdetails {
+    display: flex;
+    flex-direction: row;
+  }
   .plus {
     margin-left: 5px;
 
@@ -109,13 +113,9 @@ h3 {
     margin-top: 20px;
   }
   .productdetails img {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    min-width: 100px;
-    min-height: 150px;
-    margin-top: 50%;
     border: 2px black solid;
     border-radius: 5px;
+    max-width: 200px;
   }
 
   .productCard {
@@ -123,9 +123,7 @@ h3 {
     margin-top: 10px;
   }
   #profilecard {
-    grid-column-start: 4;
-    grid-column-end: 5;
-    min-width: 200px;
-    min-height: 750px;
+    max-height: 850px;
+    min-width: 180px;
   }
 }
