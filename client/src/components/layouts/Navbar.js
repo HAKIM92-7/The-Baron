@@ -41,7 +41,7 @@ const Navbar = () => {
         style={{ backgroundColor: 'grey' }}
       >
         
-        <div id="navigationMenu">
+        <div id="navigationMenu" >
         <Navigation/>
         </div>
         {!show_Menu?
