@@ -1,0 +1,11 @@
+@media screen and (max-width: 600px) {
+  .media-content,
+  .content {
+    font-size: small;
+  }
+
+  #shopitem {
+    min-width: 350px;
+    min-height: 300px;
+  }
+}

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Moment from 'react-moment';
 import { getShopByID } from '../../redux/actions/shopActions';
 import { getProductsBySeller } from '../../redux/actions/productActions';
-
+import './ShopItem.css';
 const ShopItem = ({ shop }) => {
   const dispatch = useDispatch();
 

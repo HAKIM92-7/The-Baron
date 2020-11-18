@@ -11,6 +11,7 @@ import {
   deleteProduct,
   getProductByProductId,
 } from '../../redux/actions/productActions';
+import './Dashboard.css';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const Dashboard = () => {
 
                   <button
                     type='button'
-                    class='btn btn-danger'
+                    className='btn btn-danger deleteProduct'
                     onClick={() => dispatch(deleteProduct(product._id))}
                   >
                     Delete Product
