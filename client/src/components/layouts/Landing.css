@@ -58,10 +58,26 @@
   #paginations {
     margin-left: 40%;
   }
+  #v-pills-tab {
+    grid-column-start: 1;
+    grid-column-end: 1;
 
+    margin-left: 5px;
+  }
+  #listofproducts {
+    display: flex;
+    flex-wrap: wrap;
+
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
   .alert {
     width: 200px;
     margin-left: 200px;
     text-align: center;
+  }
+  .listlength {
+    margin-left: 350px;
+    max-width: 100px;
   }
 }
