@@ -1,5 +1,5 @@
-import React,{Fragment} from 'react'
-
+import React,{Fragment} from 'react';
+import './CategoriesFilter.css';
 const CategoriesFilter = (props) => {
 
   const categories =['Industrie' , 'Autos' , 'Sport' ,'Cuisine', 'Décoration' , 'Accessoires','Fourniture scolaire']

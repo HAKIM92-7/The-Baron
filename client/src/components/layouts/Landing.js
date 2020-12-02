@@ -11,9 +11,11 @@ import ProductCard from '../products/ProductCard';
 import './Landing.css';
 import Carousel from './Carousel';
 import CategoriesFilter from './CategoriesFilter';
+
 import Pagination from './Pagination';
 import { setAlert } from '../../redux/actions/alertActions';
 import { clearOrder } from '../../redux/actions/orderActions';
+import CategoriesFilterMobile from './CategoriesFilterMobile';
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -88,6 +90,11 @@ const Landing = () => {
       <div id='carousel'>
         <Carousel />
         
+      </div>
+
+      <div id="categoriesMobile">
+<CategoriesFilterMobile  setCategory={setCategory}/>
+
       </div>
 
       <div  id="listlength" className="alert alert-primary" role="alert">

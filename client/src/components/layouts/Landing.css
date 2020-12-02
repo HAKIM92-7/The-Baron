@@ -49,6 +49,9 @@
     margin-left: 5px;
     width: 200px;
   }
+  #v-pills-tab {
+    display: none;
+  }
   #listlength {
     margin-left: 20px;
     max-width: 100px;
@@ -56,9 +59,7 @@
   #paginations {
     margin-left: 8%;
   }
-  #v-pills-tab {
-    display: none;
-  }
+
   #listofproducts {
     display: flex;
     flex-wrap: wrap;
@@ -72,5 +73,11 @@
   }
   .filterandproducts {
     display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #categoriesMobile {
+    display: none;
   }
 }
