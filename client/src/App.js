@@ -29,6 +29,8 @@ import LoginToOrder from './components/auth/LoginToOrder';
 import UserOrders from './components/orders/UserOrders';
 import OrderDetails from './components/orders/OrderDetails';
 import 'mdbreact/dist/css/mdb.css';
+import SellerOrders from './components/orders/SellerOrders';
+import OrderDetailsSeller from './components/orders/OrdersDetailsSeller';
 
 
 function App() {
@@ -64,7 +66,9 @@ function App() {
           <PrivateRoute path='/update-product' component={UpdateProduct} />
           <PrivateRoute path='/order-infos' component={OrderInfos} />
           <PrivateRoute path='/user-orders' component={UserOrders} />
+          <PrivateRoute path='/seller-orders' component={SellerOrders} />
           <PrivateRoute path='/order-details' component={OrderDetails} />
+          <PrivateRoute path='/seller-order-details' component={OrderDetailsSeller} />
           <Route path='/product-profile' component={ProductProfile} />
           <Route path='/register-to-order' component={RegisterToOrder} />
           <Route path='/login-to-order' component={LoginToOrder} />

@@ -44,6 +44,7 @@ const ProductCard = ({ product }) => {
           className='button is-info'
           onClick={() => {
             dispatch(getProductByProductId(product._id));
+            dispatch(getProductsBySeller(product.seller._id));
           }}
         >
           More Details

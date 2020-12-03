@@ -174,8 +174,11 @@ const UpdateProduct = (props) => {
               </div>
             </div>
 
+
+image1
             <div className="file has-name">
   <label className="file-label">
+ 
   <input
                   className="file-input"
                   type='file'
@@ -184,6 +187,8 @@ const UpdateProduct = (props) => {
                  
                   onChange={onChangeFiles}
                 />
+
+           
     <span className="file-cta">
       <span className="file-icon">
         <i className="fas fa-upload"></i>
@@ -197,7 +202,7 @@ const UpdateProduct = (props) => {
     </span>
   </label>
 </div>
-
+image2
 <div className="file has-name">
   <label className="file-label">
   <input
@@ -221,7 +226,7 @@ const UpdateProduct = (props) => {
     </span>
   </label>
 </div>
-
+image3
 <div className="file has-name">
   <label className="file-label">
   <input

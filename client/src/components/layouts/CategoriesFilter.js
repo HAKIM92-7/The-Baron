@@ -8,7 +8,7 @@ const CategoriesFilter = (props) => {
       <div className="row">
   <div className="col-3">
    
-    <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <div className="nav flex-column nav-pills" id="v-pills-tab" >
     
     <a className="nav-link active" id={`v-pills-clear-tab`} data-toggle="pill" href='#v-pills-clear' role="tab" 
       aria-controls='v-pills-clear 'aria-selected="true" onClick={()=> props.setCategory('')}>Tous</a>

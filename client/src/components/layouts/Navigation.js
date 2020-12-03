@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { logoutUser } from '../../redux/actions/authActions';
 import { logoutSeller } from '../../redux/actions/authSellerActions';
 import {showMenu} from '../../redux/actions/menuActions';
-import { getMyOrders } from '../../redux/actions/orderActions';
+import { getMyOrders, getSellerOrders } from '../../redux/actions/orderActions';
 import { getProductsBySeller } from '../../redux/actions/productActions';
 import { getAllShops, getShopByID } from '../../redux/actions/shopActions';
 import './Navigation.css';
@@ -12,6 +12,7 @@ const Navigation = () => {
 
 const dispatch=useDispatch();
 const show_Menu=useSelector(state=>state.menu.showMenu);
+
 const isAuthenticatedUser = useSelector(
     (state) => state.auth.isAuthenticated
   );
@@ -20,6 +21,7 @@ const isAuthenticatedUser = useSelector(
   );
   const user = useSelector((state) => state.auth.user);
   const seller = useSelector((state) => state.authSeller.seller);
+  const sellerOrders = useSelector(state => state.order.sellerOrders);
     return (
         <Fragment>
             <nav onClick={()=> dispatch(showMenu())}>
@@ -56,6 +58,11 @@ const isAuthenticatedUser = useSelector(
             }}>Orders</Link></li>
         </>:seller ?  <>
         <li><Link to='/' className='navig_link' onClick={()=>dispatch(showMenu())}>Home</Link></li>
+        <li><Link to='/seller-orders' className='navig_link' onClick={()=>{
+            dispatch(getSellerOrders());
+            dispatch(showMenu());
+            
+            }}>Orders</Link><span class="badge badge-danger badge-pill">{sellerOrders.length===0 ? '' :sellerOrders.length}</span></li>
         <li><Link to='/' className='navig_link' onClick={()=>{
             dispatch(logoutSeller());
             dispatch(showMenu());

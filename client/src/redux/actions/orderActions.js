@@ -7,7 +7,10 @@ import {
   USER_ORDERS_FAIL,
   CLEAR_USER_ORDERS,
   GET_ORDER,
-  CLEAR_ORDER
+  CLEAR_ORDER,
+  GET_SELLER_ORDERS,
+  SELLER_ORDERS_FAIL,
+  CLEAR_SELLER_ORDERS
   
 } from './types';
 
@@ -112,12 +115,76 @@ export const clearOrder = () => (dispatch) => {
   dispatch({ type: CLEAR_ORDER });
 };
 
+//GET SELLER ORDER BY order_id
+
+export const getSellerOrderByOrderId = (orderId) => async (dispatch,getState) => {
+  try {
+    const res = await axios.get(`api/commande/${orderId}`,tokenConfigSeller(getState))
+
+    dispatch({
+      type: GET_ORDER,
+
+      payload: res.data,
+    });
+
+  } 
+  
+  catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => {
+        dispatch(setAlert(error.msg, 'danger'));
+      });
+    }
+    dispatch({
+      type: ORDER_FAIL,
+      payload: { msg: err.message.statusText, error: err.message.status },
+    });
+  }
+};
+
 
 //CLEAR USER ORDERS
 
 export const clearUserOrders = () => (dispatch) => {
   dispatch({ type: CLEAR_USER_ORDERS });
 };
+
+//CLEAR SELLER ORDERS 
+
+export const clearSellerOrders = () => (dispatch) => {
+  dispatch({ type: CLEAR_SELLER_ORDERS});
+};
+
+
+// GET SELLER ORDERS
+
+export const getSellerOrders = () => async (dispatch, getState) => {
+  try {
+    const res = await axios.get('api/commande/seller', tokenConfigSeller(getState));
+
+    dispatch({
+      type: GET_SELLER_ORDERS,
+
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: SELLER_ORDERS_FAIL,
+      payload: { msg: err.message.statusText, error: err.message.status },
+    });
+  }
+};
+
+
+
+
+
+
+
+
+
 
 // setup config/headers and token-------------------------------------------------------------------------------------------------------------------
 
@@ -135,3 +202,22 @@ export const tokenConfig = (getState) => {
   }
   return config;
 };
+
+
+export const tokenConfigSeller = (getState) => {
+  const token = getState().authSeller.token;
+
+  const config = {
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+
+  if (token) {
+    config.headers['x-auth-token'] = token;
+  }
+  return config;
+};
+
+
+

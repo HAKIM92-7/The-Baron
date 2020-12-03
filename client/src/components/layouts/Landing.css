@@ -25,12 +25,12 @@
 #v-pills-tab {
   grid-column-start: 1;
   grid-column-end: 2;
-
-  margin-left: 10px;
+  min-width: 180px;
+  margin-left: 5px;
 }
 .filterandproducts {
   display: grid;
-  grid-template-columns: 180px auto auto auto;
+  grid-template-columns: 200px auto auto auto;
 }
 
 .alert {

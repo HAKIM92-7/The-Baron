@@ -74,6 +74,41 @@ router.post(
   }
 );
 
+// @route  PUT  api/commande/shipping/:order_id
+// @desc   change the state of order to shipped
+// @access Private
+
+/*router.put(
+  '/shipping/:order_id',
+  
+    auth,
+  
+  
+  async (req, res) => {
+   
+    const {
+    shipped
+    } = req.body;
+
+    const newState = {
+     shipped
+    };
+
+    try {
+      let order = await Order.findById (req.params.order_id) ;
+
+      order.shipped = newState;
+
+      await order.save();
+
+      return res.json(order);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('server error');
+    }
+  }
+);*/
+
 // @route  GET  api/commande/me
 // @desc   get all user orders
 // @access Private
@@ -96,6 +131,37 @@ router.get('/me', auth, async (req, res) => {
   }
 });
 
+// @route  GET  api/commande/seller
+// @desc   get all seller orders
+// @access Private
+
+
+router.get('/seller', auth, async (req, res) => {
+  try {
+
+    const orders = await Order.find();
+
+    const sellerOrders = orders.filter(order => order.listofproducts.includes
+      (order.listofproducts.filter(product => product.product.seller===req.user.id)[0]));
+ 
+    return res.json(sellerOrders);
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).send('server error');
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
 // @route  GET  api/commande/:order_id
 // @desc   Get  an order by id
 // @access Private
@@ -109,15 +175,7 @@ router.get('/:order_id', auth, async (req, res) => {
         .status(404)
         .json({ errors: [{ msg: 'no order with this id' }] });
     }
-    if (order.user.toString() !== req.user.id) {
-      return res
-        .status(401)
-        .json({
-          errors: [
-            { msg: 'you are not authorized to access to this order infos !!' },
-          ],
-        });
-    }
+
 
     return res.json(order);
   } catch (err) {

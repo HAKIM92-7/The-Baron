@@ -14,7 +14,7 @@ import {
   getMyProducts,
   getProductsBySeller,
 } from '../../redux/actions/productActions';
-import { getMyOrders } from '../../redux/actions/orderActions';
+import { getMyOrders , getSellerOrders } from '../../redux/actions/orderActions';
 import Navigation from './Navigation';
 import './Navbar.css';
 
@@ -30,7 +30,7 @@ const Navbar = () => {
   const seller = useSelector((state) => state.authSeller.seller);
   const shop = useSelector((state) => state.shop.shop);
   const show_Menu=useSelector(state=>state.menu.showMenu);
-
+  const sellerOrders = useSelector(state => state.order.sellerOrders);
 
   return (
     <Fragment>
@@ -58,6 +58,7 @@ const Navbar = () => {
               Home
             </Link>
             {isAuthenticatedSeller && !user ? (
+              <>
               <Link
                 to='/dashboard'
                 className='navbar-item'
@@ -70,6 +71,29 @@ const Navbar = () => {
               >
                 Dashboard
               </Link>
+
+<Link
+to='/seller-orders'
+className='navbar-item'
+style={{ color: 'aqua' }}
+onClick={() => dispatch(getSellerOrders())}
+>
+{' '}
+              Orders{' '}   <span class="badge badge-danger badge-pill">{sellerOrders.length===0 ? '' :sellerOrders.length}</span>
+
+</Link>
+
+</>
+
+
+
+
+
+
+
+
+
+              
             ) : (
                 ''
               )}

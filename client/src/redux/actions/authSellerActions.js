@@ -15,6 +15,7 @@ import {
   CLEAR_SELLER_PRODUCTS,
 } from './types';
 import { clearShop, reloadShop } from './shopActions';
+import { clearSellerOrders } from './orderActions';
 
 //REGISTER SELLER
 
@@ -115,6 +116,7 @@ export const loadSeller = () => async (dispatch, getState) => {
 export const logoutSeller = () => (dispatch) => {
   dispatch({ type: LOGOUT_SELLER_SUCCESS });
   dispatch({ type: CLEAR_SHOP });
+  dispatch(clearSellerOrders());
   dispatch(logoutUser());
   dispatch({ type: CLEAR_SELLER_PRODUCTS });
 };

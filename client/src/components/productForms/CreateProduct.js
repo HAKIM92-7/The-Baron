@@ -156,9 +156,10 @@ const [files , setFiles] =useState ([]);
           </div>
         </div>
 <br/>
+        image1
         <div className="file has-name">
   <label className="file-label">
-  image 1 
+
 
   <input
                   className="file-input"
@@ -182,8 +183,9 @@ const [files , setFiles] =useState ([]);
   </label>
 </div>
 <br/>
+image2
 <div className="file has-name">
-  <label className="file-label"> image 2
+  <label className="file-label"> 
   <input
                   className="file-input"
                   type='file'
@@ -206,9 +208,9 @@ const [files , setFiles] =useState ([]);
   </label>
 </div>
 <br/>
-
+image3
 <div className="file has-name">
-  <label className="file-label"> image 3
+  <label className="file-label"> 
   <input
                   className="file-input"
                   type='file'

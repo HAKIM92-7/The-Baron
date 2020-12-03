@@ -45,6 +45,10 @@ export const UPLOAD_ERROR = 'UPLOAD_ERROR';
 export const LOGO_UPLOADED = 'LOGO_UPLOADED';
 export const LOGO_ERROR = 'LOGO_ERROR';
 export const SHOW_MENU = 'SHOW_MENU';
+export const GET_SELLER_ORDERS = 'GET_SELLER_ORDERS';
+export const SELLER_ORDERS_FAIL = 'SELLER_ORDERS_FAIL';
+export const CLEAR_SELLER_ORDERS = 'CLEAR_SELLER_ORDERS';
+
 
 
 

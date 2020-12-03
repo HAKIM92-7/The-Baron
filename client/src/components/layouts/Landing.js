@@ -14,7 +14,7 @@ import CategoriesFilter from './CategoriesFilter';
 
 import Pagination from './Pagination';
 import { setAlert } from '../../redux/actions/alertActions';
-import { clearOrder } from '../../redux/actions/orderActions';
+import { clearOrder , getSellerOrders } from '../../redux/actions/orderActions';
 import CategoriesFilterMobile from './CategoriesFilterMobile';
 
 const Landing = () => {
@@ -25,6 +25,7 @@ const Landing = () => {
 
   useEffect(() => {
     dispatch(getAllProducts());
+    dispatch(getSellerOrders());
     dispatch(clearProduct());
     dispatch(clearOrder());
     dispatch(clearSellerProducts());

@@ -6,11 +6,15 @@ import {
   CLEAR_USER_ORDERS,
   GET_ORDER,
   CLEAR_ORDER,
+  GET_SELLER_ORDERS,
+  SELLER_ORDERS_FAIL,
+  CLEAR_SELLER_ORDERS
 } from '../actions/types';
 
 const initialState = {
   order:null,
   userOrders: [],
+  sellerOrders : [] , 
   loading: true,
   error: {},
 };
@@ -30,12 +34,23 @@ export default function (state = initialState, { type, payload }) {
         userOrders: payload,
         loading: false,
       };
+    case GET_SELLER_ORDERS:
+      return {
+      ...state , 
+      sellerOrders:payload,
+      loading: false
+      }
     case CLEAR_USER_ORDERS:
       return {
         ...state,
         userOrders: [],
         loading: true,
       };
+    case CLEAR_SELLER_ORDERS:
+      return {
+      ...state ,
+      sellerOrders:[]
+      }
       case CLEAR_ORDER:
         return {
         ...state ,
@@ -45,6 +60,7 @@ export default function (state = initialState, { type, payload }) {
         }
     case ORDER_FAIL:
     case USER_ORDERS_FAIL:
+    case SELLER_ORDERS_FAIL:
       return {
         ...state,
         error: payload,
