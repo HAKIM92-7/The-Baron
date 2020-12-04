@@ -27,7 +27,7 @@ const SellerOrders = () => {
               <tr>
                 <th scope='col'>Reference</th>
                 <th scope='col'>Date</th>
-                <th scope='col'>Shipped</th>
+                <th scope='col'>Livraison</th>
                 <th></th>
               </tr>
             </thead>

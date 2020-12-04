@@ -31,6 +31,7 @@ import OrderDetails from './components/orders/OrderDetails';
 import 'mdbreact/dist/css/mdb.css';
 import SellerOrders from './components/orders/SellerOrders';
 import OrderDetailsSeller from './components/orders/OrdersDetailsSeller';
+import ContactUs from './components/layouts/ContactUs';
 
 
 function App() {
@@ -79,8 +80,16 @@ function App() {
          
         
       </div>
-      <div id="foot">
+      <div id="footer">
+
+   <div id="contactus">
+
+<ContactUs/>
+   </div>
+
+   <div id="foot">
         <Footer/>
+  </div>
       </div>
     
   

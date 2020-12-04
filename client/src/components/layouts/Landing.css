@@ -44,6 +44,13 @@
 #paginations {
   margin-left: 47%;
 }
+
+#contactus {
+  background-image: url('https://wallpaperaccess.com/full/2489630.jpg');
+  max-width: 100%;
+  color: black;
+  margin-left: 2px;
+}
 @media screen and (max-width: 600px) {
   #search {
     margin-left: 5px;

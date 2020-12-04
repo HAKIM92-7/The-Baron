@@ -1,4 +1,4 @@
-import React, { Fragment,useEffect } from 'react';
+import React, { Fragment,useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,6 +19,7 @@ import Navigation from './Navigation';
 import './Navbar.css';
 
 const Navbar = () => {
+  const [ordersViewed , setOrderViewed] =useState(0);
   const dispatch = useDispatch();
   const isAuthenticatedUser = useSelector(
     (state) => state.auth.isAuthenticated
@@ -31,7 +32,8 @@ const Navbar = () => {
   const shop = useSelector((state) => state.shop.shop);
   const show_Menu=useSelector(state=>state.menu.showMenu);
   const sellerOrders = useSelector(state => state.order.sellerOrders);
-
+  const basket = useSelector ((state)=> state.product.basket) ; 
+  const filtredSellerOrders = sellerOrders ? sellerOrders.filter (order => order.shipped === true) : null ;
   return (
     <Fragment>
       <nav
@@ -76,10 +78,17 @@ const Navbar = () => {
 to='/seller-orders'
 className='navbar-item'
 style={{ color: 'aqua' }}
-onClick={() => dispatch(getSellerOrders())}
+onClick={() => {
+  
+  dispatch(getSellerOrders());
+  
+  setOrderViewed(sellerOrders.length);
+  
+  }}
 >
 {' '}
-              Orders{' '}   <span class="badge badge-danger badge-pill">{sellerOrders.length===0 ? '' :sellerOrders.length}</span>
+              Orders{' '}   
+  <span class="badge badge-danger badge-pill">{sellerOrders.length===filtredSellerOrders.length ? '' :sellerOrders.length-filtredSellerOrders}</span>
 
 </Link>
 
@@ -203,9 +212,10 @@ onClick={() => dispatch(getSellerOrders())}
                   <Link
                     to='/basket'
                     class='btn btn-warning'
-                    style={{ marginBottom: '20px' }}
+                    style={{ marginBottom: '20px'}}
                   >
                     <i className='fas fa-shopping-basket'></i>
+                    <span class="badge badge-danger badge-pill">{basket.length}</span>
                   </Link>
                 ) : (
                     ''

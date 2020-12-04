@@ -16,6 +16,7 @@ import Pagination from './Pagination';
 import { setAlert } from '../../redux/actions/alertActions';
 import { clearOrder , getSellerOrders } from '../../redux/actions/orderActions';
 import CategoriesFilterMobile from './CategoriesFilterMobile';
+import ContactUs from './ContactUs';
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -122,6 +123,7 @@ const Landing = () => {
     <div id="paginations">
    <Pagination elementsPerPage={productsPerPage} totalElements={filtredList.length} paginate={paginate}/>
    </div>   
+
     </Fragment>
   );
 };

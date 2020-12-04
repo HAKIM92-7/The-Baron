@@ -27,6 +27,10 @@ let commandSchema = new mongoose.Schema({
   total: {
     type: Number,
   },
+  shipped: {
+    type: Boolean,
+    default: false
+  },
 
   contact_infos: {
     adress_of_delivery: {

@@ -22,10 +22,11 @@ const isAuthenticatedUser = useSelector(
   const user = useSelector((state) => state.auth.user);
   const seller = useSelector((state) => state.authSeller.seller);
   const sellerOrders = useSelector(state => state.order.sellerOrders);
+  const basket = useSelector ((state)=> state.product.basket) ; 
     return (
         <Fragment>
             <nav onClick={()=> dispatch(showMenu())}>
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars"></i>
             </nav>
 
         {show_Menu ? <div className="navMenu" style={{height:'500px'}}> 
@@ -37,7 +38,8 @@ const isAuthenticatedUser = useSelector(
             dispatch(showMenu());
           
             
-            }}>Your Basket</Link></li>
+            }}>Your Basket</Link> <span className="badge badge-success">{basket.length}</span>
+            </li>
         <li><Link to='/' className="navig_link" onClick={()=>dispatch(showMenu())}>Home</Link></li>
         <li><Link to='/' className='navig_link' onClick={()=>{
             dispatch(logoutUser());
@@ -62,7 +64,7 @@ const isAuthenticatedUser = useSelector(
             dispatch(getSellerOrders());
             dispatch(showMenu());
             
-            }}>Orders</Link><span class="badge badge-danger badge-pill">{sellerOrders.length===0 ? '' :sellerOrders.length}</span></li>
+            }}>Orders</Link><span className="badge badge-danger badge-pill">{sellerOrders.length===0 ? '' :sellerOrders.length}</span></li>
         <li><Link to='/' className='navig_link' onClick={()=>{
             dispatch(logoutSeller());
             dispatch(showMenu());
