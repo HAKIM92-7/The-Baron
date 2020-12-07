@@ -80,17 +80,11 @@ function App() {
          
         
       </div>
-      <div id="footer">
-
-   <div id="contactus">
-
-<ContactUs/>
-   </div>
-
+     
    <div id="foot">
         <Footer/>
   </div>
-      </div>
+    
     
   
     </Fragment>

@@ -1,6 +1,35 @@
-import React,{Fragment} from 'react'
-
+import React,{Fragment ,useState} from 'react'
+import axios from 'axios';
 const ContactUs = () => {
+
+    const [formData , setFormData] = useState ({
+
+    name:'' ,
+    email:'',
+    subject:'',
+    message:''
+
+
+    }
+    );
+
+    const {name , email , subject , message} =formData;
+
+    const onChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+      };
+
+      const onSubmit = (e) => {
+        e.preventDefault();
+
+        const message = axios.post ('/api/emails' , formData) ; 
+       
+        setFormData({ name:'' ,
+        email:'',
+        subject:'',
+        message:''})
+
+      }
     return (
         <Fragment>
            
@@ -15,7 +44,7 @@ const ContactUs = () => {
 
        
         <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" >
+            <form id="contact-form" name="contact-form"  onSubmit={onSubmit}>
 
                
                 <div class="row">
@@ -24,7 +53,7 @@ const ContactUs = () => {
                     <div class="col-md-6">
                         <div class="md-form mb-0">
                            
-                            <input type="text" id="name" placeholder="Your Name" name="name" class="form-control"/>
+                            <input type="text" id="name" placeholder="Your Name" name="name" value={name} onChange={onChange} class="form-control"/>
                             
                         </div>
                     </div>
@@ -33,7 +62,7 @@ const ContactUs = () => {
                  
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <input type="text" id="email" placeholder="Your Email" name="email" class="form-control"/>
+                            <input type="text" id="email" placeholder="Your Email" name="email" value={email} onChange={onChange} class="form-control"/>
                            
                         </div>
                     </div>
@@ -45,7 +74,7 @@ const ContactUs = () => {
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
-                            <input type="text" id="subject" placeholder="Subject" name="subject" class="form-control"/>
+                            <input type="text" id="subject" placeholder="Subject" name="subject" value={subject} onChange={onChange} class="form-control"/>
                            
                         </div>
                     </div>
@@ -56,19 +85,20 @@ const ContactUs = () => {
                     <div class="col-md-12">
 
                         <div class="md-form">
-                            <textarea type="text" id="message" placeholder="Your Message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                            <textarea type="text" id="message" placeholder="Your Message" name="message" rows="2" 
+                            value={message} onChange={onChange} class="form-control md-textarea"></textarea>
                            
                         </div>
 
                     </div>
                 </div>
-           
+           <input class="btn btn-primary"  type="submit" value="Submit"/>
 
             </form>
 
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
-            </div>
+            
+                
+        
             <div class="status"></div>
         </div>
     

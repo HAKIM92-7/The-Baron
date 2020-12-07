@@ -16,6 +16,8 @@ app.use('/api/seller', require('./routes/api/seller'));
 app.use('/api/shop', require('./routes/api/shop'));
 app.use('/api/products', require('./routes/api/product'));
 app.use('/api/commande', require('./routes/api/commande'));
+app.use('/api/commande', require('./routes/api/commande'));
+app.use('/api/emails', require('./routes/api/mail'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/authSeller', require('./routes/api/authSeller'));
 

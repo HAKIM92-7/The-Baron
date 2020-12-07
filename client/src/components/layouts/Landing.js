@@ -123,7 +123,9 @@ const Landing = () => {
     <div id="paginations">
    <Pagination elementsPerPage={productsPerPage} totalElements={filtredList.length} paginate={paginate}/>
    </div>   
-
+<div id="contactus">
+  <ContactUs />
+</div>
     </Fragment>
   );
 };
