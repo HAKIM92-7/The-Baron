@@ -26,18 +26,23 @@ const htmlEmail = `
 
 `
 const transporter = nodeMailer.createTransport({
-  host: 'smtp.ethereal.email',
-  port: 587,
+  service: 'gmail',
+  
   auth: {
-      user: 'akeem.oreilly@ethereal.email',
-      pass: 'kvMc7r68t9dwCyYsHN'
+      user: 'barouni.hakim@gmail.com',
+      pass: 'hectropolos18811965'
+  } , 
+  tls: {
+
+  rejectUnauthorized:false
+  
   }
 });
 
 // send mail with defined transport object
 let info = await transporter.sendMail({
-  from: '"The Baron" <akeem.oreilly@ethereal.email>', // sender address
-  to: '"ADMIN" <barouni.hakim@gmail.com>', // list of receivers
+  from: '"The Baron" <barouni.hakim@gmail.com>', // sender address
+  to: 'barouni.hakim@gmail.com', // list of receivers
   subject:`${subject}`, // Subject line
   text: `${message}`, // plain text body
   html: htmlEmail, // html body
