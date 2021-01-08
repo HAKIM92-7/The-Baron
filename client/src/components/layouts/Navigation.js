@@ -32,12 +32,11 @@ const isAuthenticatedUser = useSelector(
         {show_Menu ? <div className="navMenu" style={{height:'500px'}}> 
 
         <ul>
-        {!seller ?
+        {!seller && user ?
         <>
          <li><Link to='/basket' className="navig_link" onClick={()=>{
+
             dispatch(showMenu());
-          
-            
             }}>Your Basket </Link><span class="badge badge-success badge-pill">{basket.length}</span> 
             </li>
         <li><Link to='/' className="navig_link" onClick={()=>dispatch(showMenu())}>Home</Link></li>
@@ -111,7 +110,7 @@ const isAuthenticatedUser = useSelector(
             dispatch(showMenu());
           
             
-            }}>Your Basket</Link></li>
+            }}>Your Basket</Link><span class="badge badge-success badge-pill">{basket.length}</span> </li>
         <li><Link to='/' className='navig_link' onClick={()=>dispatch(showMenu())}>Home</Link></li>
         
         <li><Link to='/allShops' className='navig_link'  onClick={()=>{
