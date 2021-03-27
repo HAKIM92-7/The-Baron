@@ -1,5 +1,6 @@
 import React,{Fragment ,useState} from 'react'
 import axios from 'axios';
+import './ContactUs.css' ; 
 const ContactUs = () => {
 
     const [formData , setFormData] = useState ({
@@ -32,8 +33,45 @@ const ContactUs = () => {
       }
     return (
         <Fragment>
+
+<div class="contact-us">
+  <form onSubmit={onSubmit}>
+    <label for="name">NAME <em>&#x2a;</em></label>
+    <input id="customerName" placeholder="Your Name" name="name" value={name} onChange={onChange} required="" type="text" />
+    <label for="email">EMAIL <em>&#x2a;</em></label>
+    <input id="customerEmail" placeholder="Your Email" name="email" value={email} onChange={onChange} required="" type="email" />
+    <label for="subject">SUBJECT</label>
+    <input id="customerPhone" placeholder="Subject" name="subject" value={subject} onChange={onChange} type="text" />
+
+    <label for="customerNote">YOUR MESSAGE <em>&#x2a;</em></label>
+    <textarea id="customerNote" placeholder="Your Message" name="message" value={message} onChange={onChange} required="" rows="4"></textarea>
+  
+<button id="customerOrder" type="submit">SUBMIT</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
            
-<section class="mb-4">
+{/* <section class="mb-4">
 
     <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
   
@@ -62,8 +100,8 @@ const ContactUs = () => {
                  
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <input type="text" id="email" placeholder="Your Email" name="email" value={email} onChange={onChange} class="form-control"/>
-                           
+                            <input type="text" id="email"  class="form-control"/>
+                           placeholder="Your Email" name="email" value={email} onChange={onChange}
                         </div>
                     </div>
                    
@@ -129,7 +167,7 @@ const ContactUs = () => {
 
 
 
-
+ */}
 
 
 

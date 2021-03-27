@@ -56,9 +56,11 @@ const Navbar = () => {
 </div>:''}
         <div id='navbarBasicExample' className='navbar-menu'>
           <div id="navMenu" className='navbar-start'>
+            
             <Link to='/' className='navbar-item is-active' style={{ color: 'aqua' }}>
               Home
             </Link>
+           
             {isAuthenticatedSeller && !user ? (
               <>
               <Link

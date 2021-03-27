@@ -81,10 +81,10 @@ function App() {
         
       </div>
      
-   <div id="foot">
+  
+     <div id="foot">
         <Footer/>
   </div>
-    
     
   
     </Fragment>

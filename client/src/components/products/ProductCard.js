@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
         </div>
         <Link
           to='/product-profile'
-          className='button is-info'
+          className='button is-warning'
           onClick={() => {
             dispatch(getProductByProductId(product._id));
             dispatch(getProductsBySeller(product.seller._id));
